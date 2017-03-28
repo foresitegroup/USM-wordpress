@@ -77,6 +77,165 @@ H3 {
   line-height: 1em;
 }
 
+INPUT[type="text"],
+INPUT[type="email"],
+INPUT[type="tel"],
+INPUT[type="password"],
+TEXTAREA,
+SELECT {
+  outline: 0;
+  border: 1px solid #E1E1E1;
+  border-radius: 6px;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.4em 1em 0.5em;
+  background: #E1E1E1;
+  color: #464646;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1em;
+  -webkit-appearance: none; /* I prefer my styles, Steve Jobs */
+  -moz-appearance: none;
+  appearance: none;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  overflow: auto; /* Good ol' IE */
+}
+
+TEXTAREA {
+  padding: 0.9em 1em;
+  height: 20em !important;
+  line-height: 1.3em;
+}
+
+SELECT {
+  padding: 1.1em 1em 1.2em;
+}
+
+INPUT::-webkit-input-placeholder { color: #464646; uppercase; opacity: 1; }
+INPUT:-moz-placeholder { color: #464646; uppercase; opacity: 1; } /* FF 4-18 */
+INPUT::-moz-placeholder { color: #464646; uppercase; opacity: 1; } /* FF 19+ */
+INPUT:-ms-input-placeholder { color: #464646; uppercase; opacity: 1; } /* IE 10+ */
+TEXTAREA::-webkit-input-placeholder { color: #464646; opacity: 1; }
+TEXTAREA:-moz-placeholder { color: #464646; opacity: 1; } /* FF 4-18 */
+TEXTAREA::-moz-placeholder { color: #464646; opacity: 1; } /* FF 19+ */
+TEXTAREA:-ms-input-placeholder { color: #464646; opacity: 1; } /* IE 10+ */
+
+INPUT:focus::-webkit-input-placeholder { color: transparent; }
+INPUT:focus:-moz-placeholder { color: transparent; } /* FF 4-18 */
+INPUT:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
+INPUT:focus:-ms-input-placeholder { color: transparent; } /* IE 10+ */
+TEXTAREA:focus::-webkit-input-placeholder { color: transparent; }
+TEXTAREA:focus:-moz-placeholder { color: transparent; } /* FF 4-18 */
+TEXTAREA:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
+TEXTAREA:focus:-ms-input-placeholder { color: transparent; } /* IE 10+ */
+
+INPUT:focus,
+TEXTAREA:focus,
+SELECT:focus {
+  border: 1px solid #EDA50B;
+}
+
+INPUT[type="button"] {
+  outline: none;
+  border: 4px solid #003366;
+  border-radius: 1.5em;
+  box-sizing: border-box;
+  padding: 0.6em 1.1em 0.6em 1.2em;
+  background: transparent;
+  color: #EDA50B;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  -webkit-appearance: none; /* I prefer my styles, Steve Jobs */
+}
+
+INPUT[type="button"]:hover {
+  color: #BBD66C;
+  border-color: #BBD66C;
+}
+
+.nf-field-container {
+  margin-bottom: 2.5em !important;
+}
+
+.nf-field-container.textarea-container {
+  margin: 4em 0 3em !important;
+}
+
+.nf-field-container.submit-container {
+  margin: 4.5em 0 1em !important;
+}
+
+.nf-error-wrap {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 80%;
+}
+
+.list-select-wrap .nf-field-element {
+  position: relative;
+}
+
+.list-select-wrap .nf-field-element:after {
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  font-family: 'FontAwesome';
+  content: "\f078";
+  font-size: 1.3em;
+  line-height: 1em;
+  color: #EDA50B;
+  pointer-events: none;
+}
+
+.checkbox-wrap .nf-field-label {
+  padding-left: 1.5em !important;
+}
+
+.checkbox-wrap LABEL {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  margin-left: 1.5em;
+}
+
+.checkbox-wrap LABEL:before {
+  content: "";
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  position: absolute;
+  left: -1.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-box-shadow:inset 0px 0px 0px 4px #003366;
+  -moz-box-shadow:inset 0px 0px 0px 4px #003366;
+  box-shadow:inset 0px 0px 0px 4px #003366;
+  border-radius: 50%;
+}
+
+.checkbox-wrap .nf-field-element {
+  display: none !important;
+}
+
+.checkbox-wrap LABEL.nf-checked-label:before {
+  background: #003366;
+}
+
 .site-width {
   width: 1200px;
   margin: 0 auto;
@@ -95,6 +254,7 @@ H3 {
   clear: both;
 }
 
+.overlay { position: relative; }
 .overlay:after {
   content: "";
   position: absolute;
@@ -104,7 +264,6 @@ H3 {
   height: 100%;
   background: rgba(0,0,0,0.5);
 }
-
 
 .play-text {
   position: absolute;
@@ -1746,6 +1905,11 @@ A.my-menu-toggle {
   text-align: center;
 }
 
+.about-contact.faq-contact {
+  font-size: 50px;
+  line-height: 1.3em;
+}
+
 .about-contact A:link,
 .about-contact A:visited {
   display: inline-block;
@@ -1767,6 +1931,167 @@ A.my-menu-toggle {
   color: #FFFFFF;
   border-color: #FFFFFF;
 }
+
+.faq {
+  padding: 6em 0 4em;
+}
+
+.faq H2 {
+  margin: 0 0 0.8em;
+  color: #003366;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  font-size: 67px;
+  line-height: 1em;
+}
+
+.faq DL {
+  margin: 0;
+  padding: 3.5em 0;
+  border-top: 1px solid #CCCCCC;
+}
+
+.faq DL:first-of-type {
+  border-top: 0;
+}
+
+.faq DT {
+  position: relative;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.faq DT:before {
+  content: "Q: ";
+  color: #EDA50B;
+}
+
+.faq DT A {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  color: #EDA50B;
+  border: 3px solid #EDA50B;
+  border-radius: 50%;
+}
+
+.faq DT A:after {
+  content: "\002b";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.faq DT A.open:after {
+  content: "\00d7";
+}
+
+.faq DD {
+  margin: 2em 0 0;
+  font-size: 17px;
+  line-height: 1.8em;
+}
+
+.faq DD:before {
+  content: "A: ";
+  font-weight: 700;
+}
+
+.contact {
+  padding: 6em 0 8em;
+}
+
+.contact H2 {
+  margin: 0 0 0.5em;
+  color: #003366;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  font-size: 67px;
+  line-height: 1em;
+}
+
+.contact-form {
+  float: left;
+  width: 64%;
+}
+
+.contact-form .nf-form-fields-required {
+  display: none;
+}
+
+.contact-sidebar {
+  float: right;
+  width: 26%;
+  font-size: 17px;
+  line-height: 1.7em;
+}
+
+.contact-sidebar P {
+  margin-bottom: 2em;
+}
+
+.contact-sidebar H3 {
+  margin-top: 25px;
+  font-size: 25px;
+}
+
+.contact-sidebar A:link,
+.contact-sidebar A:visited {
+  color: #363636;
+  text-decoration: underline;
+}
+
+.contact-sidebar A:hover,
+.contact-sidebar A:active {
+  color: #EDA50B;
+}
+
+.contact-footer {
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+.contact-footer:before {
+  content: "";
+  display: block;
+  padding-top: 31.45%;
+}
+
+.contact-footer .site-width-small {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 5;
+  text-align: center;
+  color: #FFFFFF;
+  font-weight: 300;
+  font-size: 49px;
+  line-height: 1.3em;
+}
+
+.contact-footer .attribution {
+  margin-top: 1.5em;
+  color: #BBD66C;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1em;
+}
+
+.contact-footer .attribution STRONG {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 2em;
+  display: block;
+}
+
+
 
 
 
