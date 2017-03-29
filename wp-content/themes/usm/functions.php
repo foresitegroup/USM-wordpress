@@ -9,7 +9,8 @@ function register_my_menus() {
       'top-menu' => __( 'Top Menu' ),
       'main-menu' => __( 'Main Menu' ),
       'footer-menu' => __( 'Footer Menu' ),
-      'goals-menu' => __( 'Goals Menu' )
+      'goals-menu' => __( 'Goals Menu' ),
+      'opportunities-menu' => __( 'Opportunities Menu' )
     )
   );
 }

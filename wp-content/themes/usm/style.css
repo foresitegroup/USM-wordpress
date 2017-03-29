@@ -356,6 +356,7 @@ A:hover .play:before { border-color: transparent transparent transparent #EDA50B
 }
 
 .greentext { color: #BBD66C; }
+.bluetext { color: #00CCCC; }
 
 .alignleft {
   float: left;
@@ -1564,6 +1565,11 @@ A.my-menu-toggle {
   color: #003366;
 }
 
+.goals-contact.yellow {
+  background: #EDA50B;
+  color: #FFFFFF;
+}
+
 .page-template-template-usm-fund-page .goals-contact {
   font-size: 50px;
 }
@@ -1582,6 +1588,17 @@ A.my-menu-toggle {
   border-radius: 1em;
   padding: 0.7em 1.5em 0.7em 1.65em;
   margin-top: 2.5em;
+}
+
+.goals-contact.yellow A:link,
+.goals-contact.yellow A:visited {
+  border-color: #003366;
+}
+
+.goals-contact.yellow A:hover,
+.goals-contact.yellow A:active {
+  color: #FFFFFF;
+  border-color: #FFFFFF;
 }
 
 .page-template-template-capital-page .goals-two-col A.button:hover,
@@ -2089,6 +2106,243 @@ A.my-menu-toggle {
   font-size: 15px;
   line-height: 2em;
   display: block;
+}
+
+.opportunities-header {
+  border-top: 1px solid #CCCCCC;
+  position: relative;
+  background: #003366;
+  color: #FFFFFF;
+  font-size: 18px;
+  line-height: 2em;
+}
+
+.opportunities-text {
+  width: 48%;
+  padding: 4em 0;
+}
+
+.opportunities-text .greentext {
+  font-weight: 800;
+  font-size: 14px;
+  line-height: 1em;
+  letter-spacing: 0.2em;
+  margin-bottom: 3em;
+}
+
+.opportunities-text H2 {
+  margin: 0 0 1em;
+  font-weight: 700;
+  font-family: 'Noto Serif', serif;
+  font-size: 55px;
+  line-height: 1.2em;
+}
+
+.opportunities-text .bluetext {
+  margin-top: 4em;
+  font-weight: 800;
+  line-height: 1em;
+  letter-spacing: 0.05em;
+}
+
+.opportunities-text A.more:link,
+.opportunities-text A.more:visited {
+  color: #00CCCC;
+  font-weight: 800;
+  font-size: 16px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  display: inline-block;
+  margin-top: 3em;
+}
+
+.opportunities-text A.more:hover,
+.opportunities-text A.more:active {
+  color: #FFFFFF;
+}
+
+.opportunities-text A.more:after {
+  content: "\f178";
+  font-family: "FontAwesome";
+  margin-left: 0.5em;
+}
+
+.opportunities-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+
+.contribution-levels {
+  padding: 5em 0;
+}
+
+.contribution-level {
+  display: inline-block;
+  width: 22%;
+  margin: 3em 3.6% 3em 0;
+  color: #7D7D7D;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+.contribution-level:nth-of-type(4n+4) {
+  margin-right: 0;
+}
+
+.contribution-level .greentext {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.contribution-level H3 {
+  margin: 0.2em 0 0.5em;
+  color: #00172F;
+  font-size: 44px;
+}
+
+.contribution-level SPAN {
+  color: #555555;
+}
+
+.contribution-level SPAN.total {
+  font-weight: 800;
+}
+
+.contribution-level A:link,
+.contribution-level A:visited {
+  margin-top: 2em;
+  display: inline-block;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A14C24;
+  border: 4px solid #A14C24;
+  border-radius: 1.5em;
+  padding: 0.6em 0.9em 0.5em 1em;
+}
+
+.contribution-level A:hover,
+.contribution-level A:active {
+  color: #EDA50B;
+  border-color: #EDA50B;
+}
+
+.gifts-progress {
+  position: relative;
+  color: #00CCCC;
+  font-weight: 800;
+  font-size: 18px;
+  line-height: 1em;
+  text-shadow: 3px 0 25px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  min-height: 550px;
+  background-position: center center;
+  background-size: cover;
+}
+
+.gifts-progress .site-width {
+  position: absolute;
+  z-index: 5;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.gifts-progress .site-width #total-raised {
+  padding: 0.25em 0 0;
+  color: #FFFFFF;
+  height: 1em;
+}
+
+.opportunities-menu UL LI {
+  width: auto;
+  margin-right: 5%;
+}
+
+.opportunities-menu UL LI:first-of-type { text-align: center; }
+.opportunities-menu UL LI:last-of-type { text-align: center; margin-right: 0; }
+
+.opportunities-menu UL LI A:link,
+.opportunities-menu UL LI A:visited {
+  font-size: 17px;
+}
+
+.opportunities-section-title {
+  padding: 1.1em 0;
+  background: #071D44;
+  color: #BBD66C;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 1em;
+}
+
+.opportunities-section-title H1 {
+  font-size: inherit;
+  margin: 0;
+}
+
+.opportunities-section {
+  padding: 6em 0;
+}
+
+.opp-three-col {
+  color: #7D7D7D;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 1.6em;
+  -webkit-column-count: 3;
+  -moz-column-count: 3;
+  column-count: 3;
+}
+
+.opp-three-col P {
+  margin: 0;
+  padding-bottom: 1.6em;
+  -webkit-column-break-inside: avoid;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+.opp-three-col STRONG {
+  color: #363636;
+  font-size: 17px;
+}
+
+.opportunities-section A.more:link,
+.opportunities-section A.more:visited {
+  margin-top: 4em;
+  display: inline-block;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A14C24;
+  border: 4px solid #A14C24;
+  border-radius: 1.5em;
+  padding: 0.8em 1em 0.7em 1.1em;
+}
+
+.opportunities-section A.more:hover,
+.opportunities-section A.more:active {
+  color: #EDA50B;
+  border-color: #EDA50B;
+}
+
+.usm-about {
+  padding: 3em 0;
+  background: #F2F9EF;
+  font-size: 18px;
+  line-height: 1.9em;
 }
 
 
