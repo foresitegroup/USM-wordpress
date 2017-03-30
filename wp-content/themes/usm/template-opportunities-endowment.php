@@ -23,13 +23,17 @@ endif;
     <?php echo do_shortcode('[insert page="strategic-plan-initiatives" display="content"]'); ?>
   </div>
 
-  <a href="#" class="more">I WOULD LIKE MORE INFORMATION</a>
+  <a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION</a>
 </div>
 
 <div class="goals-contact yellow">
   <div class="site-width">
     <?php echo do_shortcode('[insert page="endowment-naming-contact" display="content"]'); ?>
   </div>
+</div>
+
+<div id="opportunities" style="display: none;">
+  <?php echo do_shortcode('[insert page="endowment-contribution" display="content"]'); ?>
 </div>
 
 <?php get_footer(); ?>

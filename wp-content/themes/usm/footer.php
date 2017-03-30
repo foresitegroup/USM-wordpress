@@ -2,7 +2,7 @@
         <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="University School of Milwaukee" class="usm-logo"><br>
 
         <?php echo get_theme_mod('usm_address'); ?>, <?php echo get_theme_mod('usm_city'); ?>, <?php echo get_theme_mod('usm_state'); ?>
-        
+
         <div class="site-width-small">
           <?php wp_nav_menu(array('theme_location' => 'footer-menu')); ?>
 
@@ -14,7 +14,7 @@
           </div>
         </div>
       </div>
-      
+
     </div> <!-- /#my-page For mobile menu -->
     <nav id="my-menu">
       <?php
@@ -33,7 +33,18 @@
       ?>
     </nav>
 
-    <?php wp_footer(); ?> 
-    
+    <div id="newsletter" style="display: none;">
+      <?php echo do_shortcode('[insert page="newsletter-popup" display="content"]'); ?>
+
+      <form>
+        <div class="cf">
+          <input type="email" placeholder="Email Address">
+          <input type="button" value="Signup">
+        </div>
+      </form>
+    </div>
+
+    <?php wp_footer(); ?>
+
   </body>
 </html>

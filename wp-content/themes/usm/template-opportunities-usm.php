@@ -19,14 +19,24 @@ endif;
   </div>
 </div>
 
-<div class="site-width">
-  USM FUND GIVING SOCIETIES STUFF GOES HERE
+<div class="site-width opportunities-section">
+  <?php echo do_shortcode('[insert page="usm-fund-giving-societies" display="title"]'); ?>
+
+  <div class="opp-four-col">
+    <?php echo do_shortcode('[insert page="usm-fund-giving-societies" display="content"]'); ?>
+  </div>
+
+  <a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION</a>
 </div>
 
 <div class="goals-contact yellow">
   <div class="site-width">
-    <?php echo do_shortcode('[insert page="endowment-naming-contact" display="content"]'); ?>
+    <?php echo do_shortcode('[insert page="usm-fund-naming-contact" display="content"]'); ?>
   </div>
+</div>
+
+<div id="opportunities" style="display: none;">
+  <?php echo do_shortcode('[insert page="usm-fund-contribution" display="content"]'); ?>
 </div>
 
 <?php get_footer(); ?>

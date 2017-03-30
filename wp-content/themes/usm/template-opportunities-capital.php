@@ -12,7 +12,7 @@ else : // I'm not sure it's possible to have no posts when this page is shown, b
 	get_template_part( 'template-parts/post/content', 'none' );
 endif;
 
-$MoreInfo = '<a href="#" class="more">I WOULD LIKE MORE INFORMATION</a>';
+$MoreInfo = '<a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION</a>';
 ?>
 
 <div class="opportunities-section-title">
@@ -108,8 +108,12 @@ $MoreInfo = '<a href="#" class="more">I WOULD LIKE MORE INFORMATION</a>';
 
 <div class="goals-contact yellow">
   <div class="site-width">
-    <?php echo do_shortcode('[insert page="capital-contact" display="content"]'); ?>
+    <?php echo do_shortcode('[insert page="capital-naming-contact" display="content"]'); ?>
   </div>
+</div>
+
+<div id="opportunities" style="display: none;">
+  <?php echo do_shortcode('[insert page="capital-contribution" display="content"]'); ?>
 </div>
 
 <?php get_footer(); ?>

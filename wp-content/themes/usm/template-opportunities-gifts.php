@@ -50,4 +50,8 @@ endif;
   </div>
 </div>
 
+<div id="opportunities" style="display: none;">
+  <?php echo do_shortcode('[insert page="gifts-contribution" display="content"]'); ?>
+</div>
+
 <?php get_footer(); ?>

@@ -27,6 +27,7 @@
   
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.mmenu.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/swipebox/jquery.swipebox.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.modal.min.js"></script>
 
 	<script type="text/javascript">
 	  var $ = jQuery.noConflict();
@@ -47,6 +48,18 @@
         } else {
           $(this).append('<div class="play"></div>');
         }
+      });
+
+      $('a[href="#opportunities"],a[href="#newsletter"]').click(function(event) {
+        event.preventDefault();
+        $(this).modal({ fadeDuration: 200, fadeDelay: 0 });
+
+        $('#newsletter').on($.modal.OPEN, function(event, modal) {
+          $('body').addClass('newsletter');
+        });
+        $('#newsletter').on($.modal.AFTER_CLOSE, function(event, modal) {
+          $('body').removeClass('newsletter');
+        });
       });
 		});
 	</script>
