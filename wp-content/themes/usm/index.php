@@ -2,30 +2,49 @@
 get_header();
 
 if ( have_posts() ) :
+	$PostCount = 1;
+  
+  echo '<div class="site-width">';
 
 	/* Start the Loop */
 	while ( have_posts() ) : the_post();
-
-		/*
-		 * Include the Post-Format-specific template for the content.
-		 * If you want to override this in a child theme, then include a file
-		 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-		 */
 		get_template_part( 'template-parts/post/content', get_post_format() );
 
+    $PostCount++;
 	endwhile;
+  
+  echo '</div>';
 
-	// the_posts_pagination( array(
-	// 	'prev_text' => twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '<span class="screen-reader-text">' . __( 'Previous page', 'twentyseventeen' ) . '</span>',
-	// 	'next_text' => '<span class="screen-reader-text">' . __( 'Next page', 'twentyseventeen' ) . '</span>' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ),
-	// 	'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'twentyseventeen' ) . ' </span>',
-	// ) );
-
+  if (!is_single()) :
+  	?>
+		<div class="site-width index-post-loadmore">
+			<a href="#" id="loadmore">LOAD MORE</a>
+			<script type="text/javascript">
+			  $(function () {
+				  $(".index-post").slice(0, 6).show();
+				  $("#loadmore").on('click', function (e) {
+				    e.preventDefault();
+				    $(".index-post:hidden").slice(0, 6).slideDown();
+				    if ($(".index-post:hidden").length == 0) {
+				      $("#load").fadeOut('slow');
+				    }
+				  });
+				});
+			</script>
+		</div>
+	  <?php
+	endif;
 else :
-
 	get_template_part( 'template-parts/post/content', 'none' );
-
 endif;
-
-get_footer();
 ?>
+
+<div class="goals-contact yellow">
+	<div class="site-width">
+		<p>Please share your Common Bond.</p>
+
+		<p><a href="<?php echo home_url('/contact/'); ?>">Contact Us</a></p>
+	</div>
+</div>
+
+<?php get_footer(); ?>

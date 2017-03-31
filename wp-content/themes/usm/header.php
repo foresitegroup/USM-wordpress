@@ -40,7 +40,8 @@
         "navbar": { "title": '<a href="#my-page">&times</a>' },
         "extensions": [ "pagedim-black" ]
       });
-
+      
+      $(".swipebox").swipebox();
       $(".swipebox-video").swipebox({ autoplayVideos: true, videoMaxWidth: 1200 });
       $(".swipebox-video").each(function(){
         if ($(this).data('text')) {
