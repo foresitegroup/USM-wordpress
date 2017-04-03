@@ -330,7 +330,7 @@ function FG_post_gallery($output, $attr) {
   foreach ($attachments as $id => $attachment) {
     $img = wp_get_attachment_image_src($id, 'full');
 
-    $output .= "<a href=\"" . $img[0] . "\" class=\"swipebox\" style=\"background-image: url(" . $img[0] . ");\"></a>\n";
+    $output .= "<a href=\"" . $img[0] . "\" rel=\"sb" . $columns . "\" class=\"swipebox\" style=\"background-image: url(" . $img[0] . ");\"></a>\n";
   }
 
   $output .= "</div>\n";
@@ -343,4 +343,26 @@ add_filter('the_content', 'filter_ptags_on_images');
 function filter_ptags_on_images($content){
   return preg_replace('/<p>\s*(<a .*>)?\s*(<img .* \/>)\s*(<\/a>)?\s*<\/p>/iU', '\1\2\3', $content);
 }
+
+// Wrap video embed code in DIV for responsive goodness
+add_filter( 'embed_oembed_html', 'my_oembed_filter', 10, 4 ) ;
+function my_oembed_filter($html, $url, $attr, $post_ID) {
+  $return = '<div class="video">'.$html.'</div>';
+  return $return;
+}
+
+// Format the single post pagination
+function FG_post_pagination($args = array()) {
+  $prev_link = (get_previous_post_link()) ? get_previous_post_link('%link', $args['prev_text']) : '<a class="prev home-link" href="'.home_url().'">BACK TO STORIES AND PROGRESS</a>';
+  $next_link = (get_next_post_link()) ? get_next_post_link('%link', $args['next_text']) : '<a class="next home-link" href="'.home_url().'">BACK TO STORIES AND PROGRESS</a>';
+
+  // Only add markup if there's somewhere to navigate to.
+  if ( $prev_link || $next_link ) {
+    echo _navigation_markup($prev_link . $next_link, ' ', ' ');
+  }
+}
+add_filter('previous_post_link', 'post_link_attributes_prev');
+add_filter('next_post_link', 'post_link_attributes_next');
+function post_link_attributes_prev($output) { return str_replace('<a href=', '<a class="prev" href=', $output); }
+function post_link_attributes_next($output) { return str_replace('<a href=', '<a class="next" href=', $output); }
 ?>

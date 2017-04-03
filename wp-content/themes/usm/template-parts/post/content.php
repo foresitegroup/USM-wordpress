@@ -69,11 +69,48 @@ else :
 
   <div class="site-width">
 
-  <div class="single-post">
+  <div class="single-post-content">
   	<?php the_date('F j, Y', '<div class="single-post-date">', '</div>'); ?> 
 
   	<?php the_title('<h1 class="site-width-small single-post-title">', '</h1>'); ?>
 
 		<?php the_content(); ?>
+    
+    <div class="single-post-share">
+    	SHARE THIS <?php $cats = get_the_category(); echo strtoupper(esc_html($cats[0]->name)); ?><br>
+    	<br>
+
+			<a href="http://www.facebook.com/sharer.php?u=<?php echo get_permalink(); ?>" target="new" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+			<a href="http://www.twitter.com/share?url=<?php echo get_permalink(); ?>&text=<?php echo str_replace(' ', '+', the_title('','',false)); ?>" target="new" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+			<a href="http://plus.google.com/share?url=<?php echo get_permalink(); ?>" target="new" class="googleplus"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+			<a href="mailto:?subject=<?php echo str_replace(' ', '%20', the_title('','',false)); ?>&body=<?php echo get_permalink(); ?>" class="email"><i class="fa fa-envelope-open-o" aria-hidden="true"></i></a>
+		</div>
 	</div>
+  
+  </div>
+
+  <div class="single-post-nav">
+  	<div class="site-width">
+			<?php
+		  // Previous/next post navigation.
+		  $next_post = get_next_post();
+		  $prev_post = get_previous_post();
+      ?>
+
+	  <script type="text/javascript">
+      $(document).ready(function() {
+      	$('.nav-links .next').append("<span></span>");
+      	$('.nav-links .prev').append("<span></span>");
+      });
+    </script>
+    
+    <?php
+			FG_post_pagination(array(
+				'next_text' => __($next_post->post_title),
+				'prev_text' => __($prev_post->post_title)
+			));
+			?>
+	  </div>
+	</div>
+	<div class="site-width">
 <?php endif; ?>

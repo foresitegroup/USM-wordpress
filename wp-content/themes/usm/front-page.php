@@ -191,22 +191,33 @@ function nice_number($num) {
 </div>
 
 <div id="home-stories">
-  <div class="home-stories-image" style="background-image: url(http://localhost:8888/USM-wordpress/wp-content/uploads/2017/03/home-stories.jpg);"></div>
+  <?php
+  $query = new WP_Query(array('category_name' => 'story', 'posts_per_page' => 1));
+
+  while ($query -> have_posts()) : $query -> the_post();
+    $TheImage = wp_get_attachment_url(get_post_thumbnail_id());
+    $TheTitle = get_the_title();
+    $TheLink = get_the_permalink();
+    $TheQuoteAuthor = get_field("quote_author");
+    $TheQuoteAuthorTitle = get_field("quote_author_title");
+  endwhile;
+  wp_reset_postdata();
+  ?>
+  <div class="home-stories-image" style="background-image: url(<?php echo $TheImage; ?>);"></div>
 
   <div class="site-width">
     <div class="home-stories-text">
       <h5>STORIES</h5>
 
-      <h2>&ldquo;USM Graduates are the people you want on your team.&rdquo;</h2>
+      <h2><?php echo $TheTitle; ?></h2>
 
       <div class="attr">
-        <strong>Bruce Lee '81</strong><br>
-        Member of USM's Alumni Association Board,<br>
-        Managing Director - Wealth Management, Financial Advisor Merrill Lynch
+        <strong><?php echo $TheQuoteAuthor; ?></strong><br>
+        <?php echo $TheQuoteAuthorTitle; ?>
       </div>
 
-      <a href="#">READ STORY</a>
-      EXPLORE MORE <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+      <a href="<?php echo $TheLink; ?>" class="read">READ STORY</a>
+      <a href="<?php echo site_url(); ?>/stories-and-progress/">EXPLORE MORE <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     </div>
   </div>
 </div>

@@ -36,10 +36,10 @@
 	  	$("a[href^='http'], a[href$='.pdf']").not("[href*='" + window.location.host + "']").attr('target','_blank');
 
 	  	// Mobile menu dropdowns
-      $("#my-menu").mmenu({
-        "navbar": { "title": '<a href="#my-page">&times</a>' },
-        "extensions": [ "pagedim-black" ]
-      });
+      // $("#my-menu").mmenu({
+      //   "navbar": { "title": '<a href="#my-page">&times;</a>' },
+      //   "extensions": [ "pagedim-black" ]
+      // });
       
       $(".swipebox").swipebox();
       $(".swipebox-video").swipebox({ autoplayVideos: true, videoMaxWidth: 1200 });
@@ -67,38 +67,36 @@
 </head>
 
 	<body <?php body_class(); ?>>
-		<div id="my-page"> <!-- For mobile menu -->
-	    
-	    <div class="sticky-spacer"></div>
+    <div class="sticky-spacer"></div>
 
-	    <div class="sticky-header">
-	      <div class="site-width">
-	        <a href="<?php echo site_url(); ?>" class="logo">
-	          Our Common Bond
-	          <div>The Campaign for University School of Milwaukee</div>
-	        </a>
-	        
-	        <a href="#my-menu" class="my-menu-toggle"></a>
-	        <?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
-	      </div>
-	    </div>
+    <div class="sticky-header">
+      <div class="site-width">
+        <a href="<?php echo site_url(); ?>" class="logo">
+          Our Common Bond
+          <div>The Campaign for University School of Milwaukee</div>
+        </a>
+        
+        <a href="#my-menu" class="my-menu-toggle"></a>
+        <?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
+      </div>
+    </div>
 
-			<?php if (is_front_page()) : ?>
-			<div class="video-banner">
-				<div class="site-width home-menu">
-					<?php wp_nav_menu(array('theme_location' => 'top-menu')); ?>
-			    <?php echo get_theme_mod('usm_phone_number'); ?>
-			  </div>
+		<?php if (is_front_page()) : ?>
+		<div class="video-banner">
+			<div class="site-width home-menu">
+				<?php wp_nav_menu(array('theme_location' => 'top-menu')); ?>
+		    <?php echo get_theme_mod('usm_phone_number'); ?>
+		  </div>
 
-				<video playsinline autoplay muted loop poster="<?php echo get_header_image(); ?>">
-			    <source src="<?php echo get_header_video_url(); ?>" type="video/mp4">
-			  </video>
+			<video playsinline autoplay muted loop poster="<?php echo get_header_image(); ?>">
+		    <source src="<?php echo get_header_video_url(); ?>" type="video/mp4">
+		  </video>
 
-			  <div class="video-text">
-			  	<?php echo get_theme_mod('usm_header_text'); ?>
-			  </div>
+		  <div class="video-text">
+		  	<?php echo get_theme_mod('usm_header_text'); ?>
+		  </div>
 
-			  <img src="<?php echo get_template_directory_uri(); ?>/images/home-video-triangle.png" alt="" class="video-triangle">
-			  <img src="<?php echo get_template_directory_uri(); ?>/images/logo-badge.png" alt="" class="video-badge">
-			</div>
-			<?php endif; ?>
+		  <img src="<?php echo get_template_directory_uri(); ?>/images/home-video-triangle.png" alt="" class="video-triangle">
+		  <img src="<?php echo get_template_directory_uri(); ?>/images/logo-badge.png" alt="" class="video-badge">
+		</div>
+		<?php endif; ?>
