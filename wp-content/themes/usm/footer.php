@@ -17,13 +17,6 @@
 
     <div id="newsletter" style="display: none;">
       <?php echo do_shortcode('[insert page="newsletter-popup" display="content"]'); ?>
-
-      <form>
-        <div class="cf">
-          <input type="email" placeholder="Email Address">
-          <input type="button" value="Signup">
-        </div>
-      </form>
     </div>
 
     <?php wp_footer(); ?>

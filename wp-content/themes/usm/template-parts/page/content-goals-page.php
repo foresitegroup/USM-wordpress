@@ -46,11 +46,17 @@ global $usmgoal_color;
 
     <div id="<?php echo $usmgoal; ?>-raised"><noscript>$<?php echo number_format($Raised); ?></noscript></div>
     <div class="goal">Goal: $<?php echo nice_number($Goal); ?></div>
-
+    
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/countUp.min.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/circle-progress.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
+        $(".goal-text .button").click(function(e) {
+          $.scrollTo("#scrolldown",{duration: 600});
+          e.preventDefault();
+        });
+
         $('#<?php echo $usmgoal; ?>-circle').circleProgress({
           value: 0.<?php echo $Percent; ?>, fill: '<?php echo $usmgoal_color; ?>', size: $('.goal-meter .circle').width(),
           emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 21, animation: { duration: 2000 }
@@ -65,6 +71,7 @@ global $usmgoal_color;
       Raised.start();
     </script>
   </div>
+  <div id="scrolldown"></div>
 </div>
 
 <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/slick/slick.css">

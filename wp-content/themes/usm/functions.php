@@ -252,6 +252,7 @@ function usm_customize_register( $wp_customize ) {
   }
 }
 add_action( 'customize_register', 'usm_customize_register' );
+remove_action( 'customize_register', 'shiftnav_register_customizers' );
 
 function usm_capital_page_section( $partial = null, $id = 0 ) {
   if ( is_a( $partial, 'WP_Customize_Partial' ) ) {

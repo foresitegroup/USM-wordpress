@@ -417,7 +417,7 @@ html {
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
   width: 100%; height: 100%;
-  z-index: 100;
+  z-index: 10000;
   background: rgba(0,0,0,0.1);
 }
 
@@ -461,7 +461,7 @@ html {
 #newsletter {
   width: 980px;
   box-sizing: border-box;
-  padding: 60px 85px 70px;
+  padding: 60px 85px 30px;
   background: #F0F7ED;
   border-radius: 5px;
   font-weight: 700;
@@ -480,9 +480,15 @@ html {
   line-height: 1.2em;
 }
 
-#newsletter FORM {
+#newsletter .nf-form-content {
   margin-top: 3em;
 }
+
+#newsletter .nf-form-fields-required {
+  display: none;
+}
+
+#newsletter .email-container { float: left; width: 80%; }
 
 #newsletter INPUT[type="email"] {
   padding: 0.2em 1.5em 0.3em;
@@ -491,8 +497,7 @@ html {
   background: #003366;
   color: #FFFFFF;
   font-size: 15px;
-  width: 80%;
-  float: left;
+  width: 100%;
 }
 
 #newsletter INPUT::-webkit-input-placeholder { color: #FFFFFF; text-transform: uppercase; opacity: 1; }
@@ -504,6 +509,12 @@ html {
 #newsletter INPUT:focus:-moz-placeholder { color: transparent; } /* FF 4-18 */
 #newsletter INPUT:focus::-moz-placeholder { color: transparent; } /* FF 19+ */
 #newsletter INPUT:focus:-ms-input-placeholder { color: transparent; } /* IE 10+ */
+
+#newsletter .submit-container {
+  float: right;
+  clear: none;
+  margin: 0 !important;
+}
 
 #newsletter INPUT[type="button"] {
   border: 4px solid #EDA50B;
@@ -722,6 +733,7 @@ A.logo DIV {
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
+  z-index: -1;
   min-width: 100%;
   min-height: 100%;
   width: auto;
@@ -789,13 +801,27 @@ A.logo DIV {
   text-transform: uppercase;
 }
 
-.video-triangle {
+.video-triangle-left,
+.video-triangle-right {
   position: absolute;
   bottom: 0;
   z-index: 5;
-  width: 100%;
-  height: auto;
+  width: 55%;
 }
+
+.video-triangle-right { right: 0; }
+
+.video-triangle-left:after,
+.video-triangle-right:after {
+  content: "";
+  display: block;
+  padding-top: 22%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right top, #FFFFFF 50%, transparent 50%);
+}
+
+.video-triangle-right:after { background: linear-gradient(to left top, #FFFFFF 50%, transparent 50%); }
 
 .video-badge {
   position: absolute;
@@ -1317,6 +1343,18 @@ A.logo DIV {
   padding: 5em 0;
 }
 
+#timeline H3 {
+  display: inline;
+  margin: 0;
+  color: #EDA50B;
+  font-family: "Open Sans", sans-serif;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .usm-footer {
   background: #F2F9EF;
   color: #3C3E3D;
@@ -1471,6 +1509,10 @@ A.logo DIV {
   border-radius: 1.5em;
   padding: 0.5em 0.9em 0.5em 1em;
   margin-top: 2em;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
 }
 
 .page-template-template-capital-page .goal-text .button { border-color: #BBD66C; }
@@ -1487,6 +1529,15 @@ A.logo DIV {
 .page-template-template-capital-page .goal-text .button .fa { color: #BBD66C; }
 .page-template-template-endowment-page .goal-text .button .fa { color: #EDA50B; }
 .page-template-template-usm-fund-page .goal-text .button .fa { color: #EDA50B; }
+
+.goal-text .button:hover {
+  color: #EDA50B;
+  border-color: #EDA50B;
+}
+
+.goal-text .button:hover .fa {
+  color: #EDA50B;
+}
 
 .goal-meter {
   position: absolute;
@@ -2182,9 +2233,8 @@ A.logo DIV {
 
 .faq DT A {
   position: absolute;
-  top: 50%;
+  top: 0;
   right: 0;
-  transform: translateY(-50%);
   display: inline-block;
   width: 1em;
   height: 1em;
@@ -2618,7 +2668,6 @@ A.logo DIV {
   padding: 0.8em 1.5em;
 }
 
-
 #opportunities .nf-field-container {
   margin-bottom: 1.5em !important;
 }
@@ -2941,6 +2990,10 @@ A#loadmore:active {
   line-height: 2em;
 }
 
+.single-post .goals-contact P {
+  line-height: 1.3em;
+}
+
 .single-post BLOCKQUOTE P {
   margin: 2em auto;
   color: #003366;
@@ -2948,6 +3001,11 @@ A#loadmore:active {
   font-weight: 700;
   font-size: 36px;
   line-height: 1.4em;
+}
+
+.single-post IMG {
+  max-width: 100%;
+  height: auto;
 }
 
 .single-post .alignleft {
@@ -3165,6 +3223,8 @@ A#loadmore:active {
 
   .goals-two-col-images .image2 { top: 50%; }
   .text-first .goals-two-col-images .image2 { top: 55%; }
+
+  .opportunities-menu UL LI { margin-right: 3.9%; }
 }
 
 @media only screen and (max-width: 1024px) {
@@ -3204,6 +3264,26 @@ A#loadmore:active {
 
   .goals-cols .one-third { margin-right: 6.2%; }
   .goals-cols .one-fourth { margin-right: 3.4%; }
+
+  .opportunities-menu UL LI { margin: 0.25em 2.5%; }
+  .opportunities-menu UL LI:last-of-type { margin-right: 2.5%; }
+
+  .contribution-level { margin-right: 3.5%; }
+  .contribution-level H3 { font-size: 42px; }
+
+  .about-cabinet .one-third { width: 28.5%; }
+
+  #newsletter { width: 96%; }
+  #opportunities { width: 96%; }
+
+  .single-post P { width: 90%; }
+  
+  .nav-links A.prev:link, .nav-links A.prev:visited { padding: 3.3em 10px 3.3em 50px; }
+  .nav-links A.next:link, .nav-links A.next:visited { padding: 3.3em 50px 3.3em 10px; }
+
+  .nav-links A.prev:link SPAN, .nav-links A.prev:visited SPAN,
+  .nav-links A.next:link SPAN, .nav-links A.next:visited SPAN { left: 0; }
+  .nav-links A.next:link SPAN { left: auto; right: 0; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -3371,6 +3451,40 @@ A#loadmore:active {
   .goals-footer { font-size: 14px; }
   .goals-footer .one-fourth { width: 20%; }
   .goals-footer .one-fourth H2 { font-size: 70px; }
+
+  .opportunities-menu UL LI { vertical-align: middle; width: 44%; }
+
+  .contribution-level { width: 30.6%; }
+  .contribution-level:nth-of-type(4n+4) { margin-right: 3.5%; }
+  .contribution-level:nth-of-type(3n+3) { margin-right: 0; }
+  
+  .opportunities-text H2 { font-size: 50px; }
+
+  .opportunities-section-title { line-height: 1.2em; }
+
+  .opp-three-col { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; }
+  .opp-four-col { -webkit-column-count: 3; -moz-column-count: 3; column-count: 3; }
+
+  .contact-form { float: none; width: 100%; margin-bottom: 5em; }
+  .contact-sidebar { float: none; width: 100%; }
+
+  .contact-footer:before { padding-top: 50%; }
+
+  .about-content .goals-two-col-images .image1 { width: 75%; }
+  .about-content .goals-two-col-images .image2 { width: 70%; }
+  .about-content .goals-two-col-images .image3 { width: 65%; top: 70%; }
+
+  .faq DT { box-sizing: border-box; padding-right: 40px; line-height: 1.2em; }
+
+  #newsletter { padding: 60px 45px 30px; }
+  #newsletter .email-container { width: 75%; }
+
+  #opportunities { padding: 40px 70px 40px 50px; }
+  #opportunities .listradio-container .nf-field { top: 0; }
+
+  .index-post:link, .index-post:visited,
+  .index-post:nth-of-type(3n+3) { width: 47.2%; margin-right: 5%; }
+  .index-post:nth-of-type(2n+2) { margin-right: 0; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -3478,15 +3592,51 @@ A#loadmore:active {
 
   .goals-footer .one-fourth { width: 47%; margin: 2em 4.9% 2em 0; }
   .goals-footer .one-fourth:nth-of-type(2) { margin-right: 0; }
+
+  .opportunities-text { width: 100%; padding-bottom: 550px; }
+  .opportunities-image { top: auto; bottom: 0; width: 100%; height: 500px; }
+
+  .contribution-level,
+  .contribution-level:nth-of-type(4n+4),
+  .contribution-level:nth-of-type(3n+3) { width: 44%; margin-right: 10.5%; }
+  .contribution-level:nth-of-type(2n+2) { margin-right: 0; }
+
+  .opportunities-section-title H1 { font-size: 33px; line-height: 1.2em; }
+  .opp-four-col { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; }
+
+  .contact-footer:before { padding-top: 75%; }
+
+  .about-content .goals-two-col-text { width: 100%; }
+  .about-content .goals-two-col-text P { margin-top: 0; }
+
+  .about-content .goals-two-col-images { width: 100%; }
+  .about-content .goals-two-col-images .image1 { width: 50%; }
+  .about-content .goals-two-col-images .image2 { width: 55%; }
+  .about-content .goals-two-col-images .image3 { width: 60%; top: 72%; }
+
+  .about-gift .text { float: none; width: 100%; margin-bottom: 4em; }
+  .about-gift .image { float: none; width: 100%; position: static; }
+
+  .about-cabinet-header:before { padding-top: 50%; }
+  .about-cabinet-header .site-width H1 { font-size: 50px; }
+
+  .about-cabinet .one-third { width: 46%; margin-bottom: 2em; }
+  .about-cabinet .one-third:nth-of-type(2) { margin-right: 0; }
+
+  .about-cabinet .two-col { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; }
+
+  #newsletter .email-container { width: 70%; }
+
+  #opportunities .listselect-container { width: 55%; }
+  #opportunities .listradio-container { width: 40%; }
+  #opportunities .listradio-container .nf-field-element { width: 50%; }
+
+  .index-post:link, .index-post:visited,
+  .index-post:nth-of-type(3n+3) { width: 47.6%; margin-right: 2%; }
 }
 
 @media only screen and (max-width: 480px) {
   /* Phone */
-  .mm-menu .mm-navbar A {
-    font-size: 50px;
-    display: block;
-  }
-
   .play {
     height: 70px;
     width: 70px;
@@ -3495,6 +3645,8 @@ A#loadmore:active {
   .play:after {
     border-width: 15px 0 15px 15px;
   }
+
+  .sticky-spacer { height: 86px; }
 
   A.logo {
     font-size: 30px;
@@ -3590,6 +3742,51 @@ A#loadmore:active {
   .goals-quote .alignright { float: none; margin: 0; }
 
   .goals-footer .one-fourth H2 { font-size: 60px; }
+
+  .opportunities-menu UL LI { margin: 0.25em 0; }
+
+  .contribution-level,
+  .contribution-level:nth-of-type(4n+4),
+  .contribution-level:nth-of-type(3n+3),
+  .contribution-level:nth-of-type(2n+2) { width: 100%; margin-right: 0; }
+
+  .opp-three-col { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; }
+  .opp-four-col { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; }
+
+  .contact-footer:before { padding-top: 100%; }
+  .contact-footer .site-width-small { font-size: 36px; }
+
+  .about-header H2 { font-size: 50px; }
+
+  .about-content .goals-two-col-images .image1 { width: 100%; left: 0; }
+  .about-content .goals-two-col-images .image2 { width: 100%; }
+  .about-content .goals-two-col-images .image3 { width: 100%; }
+
+  .about-gift H2 { font-size: 50px; }
+
+  .about-cabinet-header:before { padding-top: 75%; }
+
+  .about-cabinet .one-third { width: 100%; margin: 0 0 2em 0; }
+
+  .faq H2 { font-size: 60px; }
+
+  #newsletter H2 { font-size: 35px; }
+  #newsletter .email-container { width: 100%; }
+  
+  #opportunities { padding: 30px; }
+  #opportunities H2 { font-size: 32px; }
+  #opportunities .email-container, #opportunities .phone-container,
+  #opportunities .listselect-container,
+  #opportunities .listradio-container { float: none; width: 100%; }
+
+  .first-post H1 { font-size: 45px; line-height: 1.3em; }
+  .first-post A:link, .first-post A:visited { margin: 0 0 2em 0; }
+
+  .filter A { margin: 0.5em 1.5em; }
+
+  .index-post:link, .index-post:visited,
+  .index-post:nth-of-type(3n+3),
+  .index-post:nth-of-type(2n+2) { width: 100%; margin-right: 0; }
 
   .single-post-gallery.gallery-columns-2 A,
   .single-post-gallery.gallery-columns-3 A,

@@ -21,11 +21,9 @@
   
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans:300,400,600,700,800">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/jquery.mmenu.css" type="text/css">
   <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/swipebox/swipebox.css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css?<?php echo filemtime(get_template_directory() . "/style.css"); ?>">
-  
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.mmenu.min.js"></script>
+
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/swipebox/jquery.swipebox.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.modal.min.js"></script>
 
@@ -35,12 +33,6 @@
 	  $(document).ready(function() {
 	  	$("a[href^='http'], a[href$='.pdf']").not("[href*='" + window.location.host + "']").attr('target','_blank');
 
-	  	// Mobile menu dropdowns
-      // $("#my-menu").mmenu({
-      //   "navbar": { "title": '<a href="#my-page">&times;</a>' },
-      //   "extensions": [ "pagedim-black" ]
-      // });
-      
       $(".swipebox").swipebox();
       $(".swipebox-video").swipebox({ autoplayVideos: true, videoMaxWidth: 1200 });
       $(".swipebox-video").each(function(){
@@ -64,6 +56,16 @@
       });
 		});
 	</script>
+
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+   
+    ga('create', 'UA-12413961-2', 'auto');
+    ga('send', 'pageview');
+  </script>
 </head>
 
 	<body <?php body_class(); ?>>
@@ -95,8 +97,9 @@
 		  <div class="video-text">
 		  	<?php echo get_theme_mod('usm_header_text'); ?>
 		  </div>
-
-		  <img src="<?php echo get_template_directory_uri(); ?>/images/home-video-triangle.png" alt="" class="video-triangle">
+      
+      <div class="video-triangle-left"></div>
+      <div class="video-triangle-right"></div>
 		  <img src="<?php echo get_template_directory_uri(); ?>/images/logo-badge.png" alt="" class="video-badge">
 		</div>
 		<?php endif; ?>
