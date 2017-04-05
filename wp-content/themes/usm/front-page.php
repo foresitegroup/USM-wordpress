@@ -105,6 +105,7 @@ function nice_number($num) {
 <script type="text/javascript">
   $(document).ready(function() {
     $(".video-badge").waypoint(function(direction) {
+      $("BODY").toggleClass("home-sticky", direction == "down");
       $(".home .sticky-header").toggleClass("sticky", direction == "down");
     });
 

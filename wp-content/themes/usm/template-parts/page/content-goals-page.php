@@ -61,8 +61,15 @@ global $usmgoal_color;
           value: 0.<?php echo $Percent; ?>, fill: '<?php echo $usmgoal_color; ?>', size: $('.goal-meter .circle').width(),
           emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 21, animation: { duration: 2000 }
         });
-
+        
+        $('.goals-slider').append('<div class="cycle-pager"></div><div class="cycle-prev"></div><div class="cycle-next"></div>');
         $('.goals-slider').find('br').remove();
+        $('.goals-slider').cycle({
+          slides: '> img, > a',
+          speed: 1000,
+          timeout: 5000,
+          pagerTemplate: "<span></span>"
+        });
       });
 
       var Percent = new CountUp("<?php echo $usmgoal; ?>-percent", 0, <?php echo $Percent; ?>, 0, 2, {suffix: '%'});
@@ -74,6 +81,4 @@ global $usmgoal_color;
   <div id="scrolldown"></div>
 </div>
 
-<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/slick/slick.css">
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/slick/slick.min.js"></script>
-<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/slick/slick.init.goals-slider.js"></script>
+<script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.cycle2.min.js"></script>

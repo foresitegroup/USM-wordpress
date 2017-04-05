@@ -22,12 +22,16 @@ if ( have_posts() ) :
 			<script type="text/javascript">
 			  $(function () {
 				  $(".index-post").slice(0, 6).show();
+
+				  // Don't show button if fewer than max number of posts
+				  if ($(".index-post:hidden").length == 0) $("#loadmore").fadeOut('fast');
+
 				  $("#loadmore").on('click', function (e) {
 				    e.preventDefault();
 				    $(".index-post:hidden").slice(0, 6).slideDown();
-				    if ($(".index-post:hidden").length == 0) {
-				      $("#load").fadeOut('slow');
-				    }
+
+				    // Remove button when we get to the end of the posts
+				    if ($(".index-post:hidden").length == 0) $("#loadmore").fadeOut('slow');
 				  });
 				});
 			</script>

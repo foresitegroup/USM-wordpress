@@ -78,7 +78,6 @@
           <div>The Campaign for University School of Milwaukee</div>
         </a>
         
-        <a href="#my-menu" class="my-menu-toggle"></a>
         <?php wp_nav_menu(array('theme_location' => 'main-menu')); ?>
       </div>
     </div>

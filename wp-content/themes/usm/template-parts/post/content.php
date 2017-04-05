@@ -19,15 +19,23 @@ if (!is_single()) :
 
 				<a href="<?php echo get_permalink(); ?>">Read <?php $cats = get_the_category(); echo esc_html($cats[0]->name); ?></a>
 				<div class="explore">EXPLORE MORE <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+
+        <div id="scrollto"></div>
 			</div>
 		</div>
-
+    
+    <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.scrollTo.min.js"></script>
 		<script type="text/javascript">
-		$(document).ready(function() {
-		  $(".filter [href]").each(function() {
-		    if (this.href == window.location.href) { $(this).addClass("current"); }
-		  });
-		});
+  		$(document).ready(function() {
+        $(".explore").click(function(e) {
+          $.scrollTo("#scrollto",{duration: 500});
+          e.preventDefault();
+        });
+
+  		  $(".filter [href]").each(function() {
+  		    if (this.href == window.location.href) { $(this).addClass("current"); }
+  		  });
+  		});
 		</script>
 
 		<div class="filter">

@@ -16,35 +16,44 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
-// Set length of blog index except
+// Set length of blog index excerpt
 function wpdocs_custom_excerpt_length( $length ) {
-  return 300;
+  return 25;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
-// Break excerpt at sentence end
-function end_with_sentence( $excerpt ) {
-  $allowed_ends = array('.', '!', '?', '...');
-  $number_sentences = 2;
-  $excerpt_chunk = $excerpt;
-
-  for($i = 0; $i < $number_sentences; $i++){
-    $lowest_sentence_end[$i] = 100000000000000000;
-    foreach($allowed_ends as $allowed_end) {
-      $sentence_end = strpos( $excerpt_chunk, $allowed_end);
-      if ($sentence_end !== false && $sentence_end < $lowest_sentence_end[$i]) {
-        $lowest_sentence_end[$i] = $sentence_end + strlen( $allowed_end );
-      }
-      $sentence_end = false;
-    }
-
-    $sentences[$i] = substr( $excerpt_chunk, 0, $lowest_sentence_end[$i]);
-    $excerpt_chunk = substr( $excerpt_chunk, $lowest_sentence_end[$i]);
+// Add "..." to end of excerpt
+function change_excerpt_more() {
+  function new_excerpt_more( $more ) {
+    return '...';
   }
-
-  return implode('', $sentences);
+  add_filter('excerpt_more', 'new_excerpt_more');
 }
-add_filter('get_the_excerpt', 'end_with_sentence');
+add_action('after_setup_theme', 'change_excerpt_more');
+
+// Break excerpt at sentence end
+// function end_with_sentence( $excerpt ) {
+//   $allowed_ends = array('.', '!', '?', '...');
+//   $number_sentences = 2;
+//   $excerpt_chunk = $excerpt;
+
+//   for($i = 0; $i < $number_sentences; $i++){
+//     $lowest_sentence_end[$i] = 100000000000000000;
+//     foreach($allowed_ends as $allowed_end) {
+//       $sentence_end = strpos( $excerpt_chunk, $allowed_end);
+//       if ($sentence_end !== false && $sentence_end < $lowest_sentence_end[$i]) {
+//         $lowest_sentence_end[$i] = $sentence_end + strlen( $allowed_end );
+//       }
+//       $sentence_end = false;
+//     }
+
+//     $sentences[$i] = substr( $excerpt_chunk, 0, $lowest_sentence_end[$i]);
+//     $excerpt_chunk = substr( $excerpt_chunk, $lowest_sentence_end[$i]);
+//   }
+
+//   return implode('', $sentences);
+// }
+// add_filter('get_the_excerpt', 'end_with_sentence');
 
 /* Video header stuff */
 function custom_theme_features()  {
