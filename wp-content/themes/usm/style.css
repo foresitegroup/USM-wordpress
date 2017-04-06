@@ -1777,7 +1777,7 @@ A.logo DIV {
   margin: 5em auto 6em;
 }
 
-.cycle-pager { 
+.cycle-pager {
   position: absolute;
   bottom: 2em;
   width: 100%;
@@ -1869,6 +1869,12 @@ A.logo DIV {
   border-radius: 1em;
   padding: 0.7em 1.5em 0.7em 1.65em;
   margin-top: 2.5em;
+}
+
+.goals-contact A:hover,
+.goals-contact A:active {
+  color: #003366;
+  border-color: #003366;
 }
 
 .goals-contact.yellow A:link,
@@ -3250,7 +3256,8 @@ A#loadmore:active {
 
 
 @media only screen and (max-width: 1200px) {
-  .site-width {
+  .site-width,
+  .goals-slider {
     width: 96%;
   }
 
@@ -3265,6 +3272,8 @@ A#loadmore:active {
 
   .goals-two-col-images .image2 { top: 50%; }
   .text-first .goals-two-col-images .image2 { top: 55%; }
+
+  .goals-slider IMG { max-width: 100%; height: auto; }
 
   .opportunities-menu UL LI { margin-right: 3.9%; }
 }
