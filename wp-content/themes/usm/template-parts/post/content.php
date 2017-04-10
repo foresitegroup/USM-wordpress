@@ -3,7 +3,15 @@
  * Template part for displaying posts
  */
 global $PostCount;
+?>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.mm-blog').addClass('current_page_item');
+  });
+</script>
+
+<?php
 if (!is_single()) :
 	/* BLOG INDEX */
 	if ($PostCount == 1) :

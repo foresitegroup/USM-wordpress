@@ -30,7 +30,7 @@ function nice_number($num) {
 ?>
 
 <div class="home-progress">
-  OUR PROGRESS SINCE 2017, TOGETHER WE'VE RAISED:
+  OUR PROGRESS TODAY, TOGETHER WE'VE RAISED:
 
   <div id="total-raised"><noscript>$<?php echo number_format($TotalRaised); ?></noscript></div>
 
@@ -208,7 +208,7 @@ function nice_number($num) {
 
   <div class="site-width">
     <div class="home-stories-text">
-      <h5>STORIES</h5>
+      <h5>CAMPAIGN NEWS</h5>
 
       <h2><?php echo $TheTitle; ?></h2>
 

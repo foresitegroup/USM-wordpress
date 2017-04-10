@@ -10,7 +10,7 @@
     ?>
   </title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
@@ -21,10 +21,10 @@
   
 	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700|Open+Sans:300,400,600,700,800">
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/swipebox/swipebox.css">
+  <link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/inc/jquery.magnific-popup.css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css?<?php echo filemtime(get_template_directory() . "/style.css"); ?>">
 
-  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/swipebox/jquery.swipebox.min.js"></script>
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.magnific-popup.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.modal.min.js"></script>
 
 	<script type="text/javascript">
@@ -33,14 +33,29 @@
 	  $(document).ready(function() {
 	  	$("a[href^='http'], a[href$='.pdf']").not("[href*='" + window.location.host + "']").attr('target','_blank');
 
-      $(".swipebox").swipebox();
-      $(".swipebox-video").swipebox({ autoplayVideos: true, videoMaxWidth: 1200 });
-      $(".swipebox-video").each(function(){
+      $(".video-popup").each(function(){
         if ($(this).data('text')) {
           $(this).append('<div class="play-text"><div class="play"></div>' + $(this).data("text") + '</div>');
         } else {
           $(this).append('<div class="play"></div>');
         }
+      });
+
+      $('.video-popup').magnificPopup({
+        type: 'iframe',
+        iframe: {
+          patterns: {
+            youtube: { index: 'youtube.com/', id: 'v=', src: 'http://www.youtube.com/embed/%id%?rel=0&autoplay=1' }
+          }
+        }
+      });
+
+      $('.single-post-gallery').each(function() {
+        $(this).magnificPopup({
+          delegate: 'a',
+          type: 'image',
+          gallery: { enabled: true }
+        });
       });
 
       $('a[href="#opportunities"],a[href="#newsletter"]').click(function(event) {

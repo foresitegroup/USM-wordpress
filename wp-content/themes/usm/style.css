@@ -317,6 +317,13 @@ INPUT[type="button"]:hover {
   margin: 100px 0;
 }
 
+.video-popup {
+  outline: 0;
+}
+
+.mfp-iframe-holder .mfp-content { max-width: 1200px; }
+.mfp-zoom-out-cur .mfp-image-holder .mfp-close { cursor: default; }
+
 .play-text {
   position: absolute;
   z-index: 10;
@@ -593,6 +600,7 @@ A.logo DIV {
   right: 5%;
   left: auto;
   height: 93px;
+  z-index: 300;
 }
 
 .home #shiftnav-toggle-main {
@@ -678,6 +686,7 @@ A.logo DIV {
   text-transform: uppercase;
 }
 
+.menu-main-menu-container UL LI.current_page_item A,
 .menu-main-menu-container UL LI:hover A,
 .menu-main-menu-container UL LI UL LI A:hover {
   color: #EDA50B;
@@ -691,6 +700,7 @@ A.logo DIV {
   padding: 0.25em 0.75em;
 }
 
+.menu-main-menu-container UL LI.button.current_page_item A,
 .menu-main-menu-container UL LI.button A:hover,
 .menu-main-menu-container UL LI.button A:active {
   border-color: #EDA50B;
@@ -811,6 +821,13 @@ A.logo DIV {
   text-transform: uppercase;
 }
 
+.video-text SPAN {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 20%;
+  line-height: 1.2em;
+}
+
 .video-triangle-left,
 .video-triangle-right {
   position: absolute;
@@ -920,7 +937,7 @@ A.logo DIV {
   position: relative;
 }
 
-.home-progress .one-third .circle .preload {f
+.home-progress .one-third .circle .preload {
   padding-top: 100%;
   position: relative;
 }
@@ -1064,6 +1081,7 @@ A.logo DIV {
   top: -1.5em;
   right: 0;
   z-index: 3;
+  width: 58%;
 }
 
 .campaign-images .image2 {
@@ -1370,10 +1388,13 @@ A.logo DIV {
   color: #3C3E3D;
   font-weight: 700;
   font-size: 12px;
-  line-height: 1em;
+  line-height: 1.4em;
   letter-spacing: 0.1em;
   text-align: center;
   text-transform: uppercase;
+}
+.usm-footer A {
+  color: #3C3E3D;
 }
 
 .usm-logo {
@@ -3085,6 +3106,7 @@ A#loadmore:active {
   background-position: center center;
   background-size: cover;
   margin-bottom: 3em;
+  outline: 0;
 }
 
 .single-post-gallery A:before {
@@ -3278,7 +3300,16 @@ A#loadmore:active {
   .opportunities-menu UL LI { margin-right: 3.9%; }
 }
 
+@media only screen and (max-width: 1115px) {
+  .menu-main-menu-container {
+    display: none;
+  }
+}
+
 @media only screen and (max-width: 1024px) {
+    .menu-main-menu-container {
+    display: none;
+  }
   .site-width-small {
     width: 96%;
   }
@@ -3339,10 +3370,6 @@ A#loadmore:active {
 
 @media only screen and (max-width: 800px) {
   /* Small computer or landscape tablet */
-  .menu-main-menu-container {
-    display: none;
-  }
-
   .video-banner {
     padding-top: 62%;
   }

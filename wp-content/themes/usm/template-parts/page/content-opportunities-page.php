@@ -6,6 +6,11 @@ global $TotalRaisedText;
 ?>
 
 <?php wp_nav_menu(array('theme_location' => 'opportunities-menu', 'container_class' => 'site-width goals-menu opportunities-menu', 'menu_class' => '')); ?>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.mm-opp').addClass('current_page_item');
+  });
+</script>
 
 <div class="opportunities-header">
   <div class="site-width">

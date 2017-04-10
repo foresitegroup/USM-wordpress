@@ -9,6 +9,11 @@ global $usmgoal_color;
 ?>
 
 <?php wp_nav_menu(array('theme_location' => 'goals-menu', 'container_class' => 'site-width-small goals-menu', 'menu_class' => '')); ?>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.mm-goals').addClass('current_page_item');
+  });
+</script>
 
 <div class="goal-header">
   <div class="site-width">

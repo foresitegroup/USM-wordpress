@@ -340,7 +340,7 @@ function FG_post_gallery($output, $attr) {
   foreach ($attachments as $id => $attachment) {
     $img = wp_get_attachment_image_src($id, 'full');
 
-    $output .= "<a href=\"" . $img[0] . "\" rel=\"sb" . $columns . "\" class=\"swipebox\" style=\"background-image: url(" . $img[0] . ");\"></a>\n";
+    $output .= "<a href=\"" . $img[0] . "\" rel=\"sb" . $columns . "\" style=\"background-image: url(" . $img[0] . ");\"></a>\n";
   }
 
   $output .= "</div>\n";
@@ -363,8 +363,8 @@ function my_oembed_filter($html, $url, $attr, $post_ID) {
 
 // Format the single post pagination
 function FG_post_pagination($args = array()) {
-  $prev_link = (get_previous_post_link()) ? get_previous_post_link('%link', $args['prev_text']) : '<a class="prev home-link" href="'.home_url().'">BACK TO STORIES AND PROGRESS</a>';
-  $next_link = (get_next_post_link()) ? get_next_post_link('%link', $args['next_text']) : '<a class="next home-link" href="'.home_url().'">BACK TO STORIES AND PROGRESS</a>';
+  $prev_link = (get_previous_post_link()) ? get_previous_post_link('%link', $args['prev_text']) : '<a class="prev home-link" href="'.get_permalink(get_option('page_for_posts')).'">BACK TO STORIES AND PROGRESS</a>';
+  $next_link = (get_next_post_link()) ? get_next_post_link('%link', $args['next_text']) : '<a class="next home-link" href="'.get_permalink(get_option('page_for_posts')).'">BACK TO STORIES AND PROGRESS</a>';
 
   // Only add markup if there's somewhere to navigate to.
   if ( $prev_link || $next_link ) {

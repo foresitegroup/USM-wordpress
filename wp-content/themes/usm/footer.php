@@ -1,7 +1,8 @@
     <div class="usm-footer">
       <img src="<?php echo get_template_directory_uri(); ?>/images/logo.png" alt="University School of Milwaukee" class="usm-logo"><br>
 
-      <?php echo get_theme_mod('usm_address'); ?>, <?php echo get_theme_mod('usm_city'); ?>, <?php echo get_theme_mod('usm_state'); ?>
+      <?php echo get_theme_mod('usm_address'); ?>, <?php echo get_theme_mod('usm_city'); ?>, <?php echo get_theme_mod('usm_state'); ?><br>
+      <?php echo get_theme_mod('usm_phone_number'); ?>
 
       <div class="site-width-small">
         <?php wp_nav_menu(array('theme_location' => 'footer-menu')); ?>
