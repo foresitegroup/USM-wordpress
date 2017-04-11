@@ -319,6 +319,8 @@ INPUT[type="button"]:hover {
 
 .video-popup {
   outline: 0;
+  position: relative;
+  display: inline-block;
 }
 
 .mfp-iframe-holder .mfp-content { max-width: 1200px; }
@@ -1774,28 +1776,35 @@ A.logo DIV {
 .goals-quote {
   padding: 4em 0;
   font-weight: 400;
-  font-size: 25px;
+  font-size: 23px;
   line-height: 2em;
   text-align: right;
 }
 
-.goals-quote IMG {
+.goals-quote .alignright {
+  width: 35% !important;
+}
+
+.goals-quote .alignright IMG {
+  max-width: 100%;
+  height: auto;
   -webkit-box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
   -moz-box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
   box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
 }
 
 .goals-quote .wp-caption-text {
-  margin: 0 0 2em;
+  margin: 0;
   font-size: 16px;
   line-height: 1em;
   color: #A1B434;
-  text-align: center;
+  text-align: right;
 }
 
 .goals-slider {
   width: 1200px;
   margin: 5em auto 6em;
+  line-height: 0.5em;
 }
 
 .cycle-pager {
@@ -1980,10 +1989,20 @@ A.logo DIV {
 .goals-footer .one-fourth:nth-of-type(3) H2 { color: #A1B434; }
 .goals-footer .one-fourth:nth-of-type(4) H2 { color: #EDA50B; }
 
-.goals-footer .percent {
+.goals-footer SPAN {
   font-size: 50%;
+  line-height: 1em;
   position: relative;
   top: -0.7em;
+}
+
+.page-template-template-usm-fund-page .goal-text { position: relative; }
+.usm-fund-logo {
+  position: absolute;
+  right: 0;
+  top: 4em;
+  max-width: 25%;
+  height: auto;
 }
 
 .about-header {
@@ -2135,13 +2154,47 @@ A.logo DIV {
   -webkit-box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
   -moz-box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
   box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
-  margin-bottom: 2em;
+  /*margin-bottom: 2em;*/
 }
 
 .about-gift .image .greentext {
   font-weight: 700;
   font-size: 16px;
   line-height: 1.5em;
+  display: inline-block;
+  margin-top: 1em;
+}
+
+.about-gift .image .video-popup {
+  margin-top: 5em;
+}
+
+.about-quote {
+  padding: 4em 0;
+  font-weight: 400;
+  font-size: 23px;
+  line-height: 2em;
+  text-align: right;
+}
+
+.about-quote .alignright {
+  width: 35% !important;
+}
+
+.about-quote .alignright IMG {
+  max-width: 100%;
+  height: auto;
+  -webkit-box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
+  -moz-box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
+  box-shadow: 0 0 45px 3px rgba(0,0,0,0.25);
+}
+
+.about-quote .wp-caption-text {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1em;
+  color: #A1B434;
+  text-align: right;
 }
 
 .about-cabinet-header {
@@ -2181,20 +2234,17 @@ A.logo DIV {
   padding: 5em 0 7em;
 }
 
-.about-cabinet .one-third {
-  display: inline-block;
-  vertical-align: top;
-  margin-right: 6.4%;
-  width: 28.8%;
-  font-size: 14px;
-  line-height: 1.8em;
+.about-cabinet .one-half {
+  float: left;
+  width: 45%;
+  line-height: 2em;
 }
 
-.about-cabinet .one-third:nth-of-type(3) {
-  margin-right: 0;
+.about-cabinet .one-half:nth-of-type(2) {
+  float: right;
 }
 
-.about-cabinet .one-third H3 {
+.about-cabinet .one-half H3 {
   color: #EDA50B;
   font-size: 22px;
   line-height: 1em;
@@ -2202,13 +2252,18 @@ A.logo DIV {
 }
 
 .about-cabinet H2 {
-  margin: 0 auto 2em;
+  margin: 0 auto 0.25em;
   color: #003366;
   font-family: 'Noto Serif', serif;
   font-weight: 700;
   font-size: 40px;
   line-height: 1.2em;
   text-align: center;
+}
+
+.about-cabinet .thanks {
+  text-align: center;
+  margin-bottom: 4em;
 }
 
 .about-cabinet .two-col {
@@ -2564,7 +2619,7 @@ A.logo DIV {
 }
 
 .gifts-progress .site-width #total-raised {
-  padding: 0.25em 0 0;
+  padding: 0.25em 0 0.3em;
   color: #FFFFFF;
   height: 1em;
 }
@@ -2583,7 +2638,7 @@ A.logo DIV {
 }
 
 .opportunities-section-title {
-  padding: 1.1em 0;
+  padding: 0.7em 0;
   background: #071D44;
   color: #BBD66C;
   font-family: 'Noto Serif', serif;
@@ -2668,6 +2723,22 @@ A.logo DIV {
 .opportunities-section A.more:active {
   color: #EDA50B;
   border-color: #EDA50B;
+}
+
+.keepscrolling {
+  float: right;
+  margin-top: 4.5em;
+  font-weight: 800;
+  font-size: 12px;
+  line-height: 1em;
+  letter-spacing: 0.1em;
+  color: #003366;
+}
+
+.keepscrolling:after {
+  font-family: "FontAwesome";
+  content: "\f175";
+  padding-left: 0.5em;
 }
 
 .usm-about {
@@ -2870,7 +2941,7 @@ A.logo DIV {
 }
 
 .filter {
-  padding: 2.3em 0;
+  padding: 2em 0;
   background: #F3FAF0;
   font-weight: 800;
   font-size: 18px;
@@ -2880,7 +2951,7 @@ A.logo DIV {
 
 .filter A {
   display: inline-block;
-  margin: 0 1.5em;
+  margin: 0.5em 1em;
   padding-left: 1.5em;
   color: #252525;
   letter-spacing: 0.2em;
@@ -3300,7 +3371,7 @@ A#loadmore:active {
   .opportunities-menu UL LI { margin-right: 3.9%; }
 }
 
-@media only screen and (max-width: 1115px) {
+@media only screen and (max-width: 1170px) {
   .menu-main-menu-container {
     display: none;
   }
@@ -3347,11 +3418,15 @@ A#loadmore:active {
   .goals-cols .one-third { margin-right: 6.2%; }
   .goals-cols .one-fourth { margin-right: 3.4%; }
 
+  .goals-quote .wp-caption-text { margin-bottom: 2em; }
+
   .opportunities-menu UL LI { margin: 0.25em 2.5%; }
   .opportunities-menu UL LI:last-of-type { margin-right: 2.5%; }
 
   .contribution-level { margin-right: 3.5%; }
   .contribution-level H3 { font-size: 42px; }
+
+  .about-quote .wp-caption-text { margin-bottom: 2em; }
 
   .about-cabinet .one-third { width: 28.5%; }
 
@@ -3525,10 +3600,14 @@ A#loadmore:active {
 
   .goals-cols .one-fourth { width: 48%; margin-bottom: 2em; }
   .goals-cols .one-fourth:nth-of-type(2) { margin-right: 0; }
+
+  .goals-quote .wp-caption-text { margin-bottom: 0; }
   
   .goals-footer { font-size: 14px; }
   .goals-footer .one-fourth { width: 20%; }
   .goals-footer .one-fourth H2 { font-size: 70px; }
+
+  .usm-fund-logo { top: 2em; }
 
   .opportunities-menu UL LI { vertical-align: middle; width: 44%; }
 
@@ -3551,6 +3630,8 @@ A#loadmore:active {
   .about-content .goals-two-col-images .image1 { width: 75%; }
   .about-content .goals-two-col-images .image2 { width: 70%; }
   .about-content .goals-two-col-images .image3 { width: 65%; top: 70%; }
+
+  .about-quote .wp-caption-text { margin-bottom: 0; }
 
   .faq DT { box-sizing: border-box; padding-right: 40px; line-height: 1.2em; }
 
@@ -3671,8 +3752,14 @@ A#loadmore:active {
 
   .goals-cols .one-third, .goals-cols .one-fourth { width: 100%; margin: 0 0 2em 0; }
 
+  .goals-quote { text-align: left; }
+  .goals-quote .alignright { width: 100% !important; float: none; margin: 0; }
+  .goals-quote .wp-caption-text { margin-bottom: 2em; }
+
   .goals-footer .one-fourth { width: 47%; margin: 2em 4.9% 2em 0; }
   .goals-footer .one-fourth:nth-of-type(2) { margin-right: 0; }
+
+  .usm-fund-logo { top: 4em; }
 
   .opportunities-text { width: 100%; padding-bottom: 550px; }
   .opportunities-image { top: auto; bottom: 0; width: 100%; height: 500px; }
@@ -3697,6 +3784,10 @@ A#loadmore:active {
 
   .about-gift .text { float: none; width: 100%; margin-bottom: 4em; }
   .about-gift .image { float: none; width: 100%; position: static; }
+  
+  .about-quote { text-align: left; }
+  .about-quote .alignright { width: 100% !important; float: none; margin: 0; }
+  .about-quote .wp-caption-text { margin-bottom: 2em; }
 
   .about-cabinet-header:before { padding-top: 50%; }
   .about-cabinet-header .site-width H1 { font-size: 50px; }
@@ -3714,6 +3805,9 @@ A#loadmore:active {
 
   .index-post:link, .index-post:visited,
   .index-post:nth-of-type(3n+3) { width: 47.6%; margin-right: 2%; }
+
+  .first-post A:link, .first-post A:visited { margin: 0 2em 2em; }
+  .first-post .explore { margin: 0 2em; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -3839,6 +3933,8 @@ A#loadmore:active {
 
   .goals-footer .one-fourth H2 { font-size: 60px; }
 
+  .usm-fund-logo { top: 2em; }
+
   .opportunities-menu UL LI { margin: 0.25em 0; }
 
   .contribution-level,
@@ -3891,7 +3987,9 @@ A#loadmore:active {
   }
 
   .first-post H1 { font-size: 45px; line-height: 1.3em; }
-  .first-post A:link, .first-post A:visited { margin: 0 0 2em 0; }
+
+  .first-post A:link, .first-post A:visited { margin: 0 0 2em; }
+  .first-post .explore { margin: 0; }
 
   .filter A { margin: 0.5em 1.5em; }
 

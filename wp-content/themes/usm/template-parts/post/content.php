@@ -21,12 +21,12 @@ if (!is_single()) :
 
 		<div class="first-post overlay" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>);">
 			<div class="site-width">
-				<?php the_date('F j, Y', '<h3>', '</h3>'); ?> 
+				<?php //the_date('F j, Y', '<h3>', '</h3>'); ?> 
 
 				<?php the_title('<h1>', '</h1>'); ?>
 
 				<a href="<?php echo get_permalink(); ?>">Read <?php $cats = get_the_category(); echo esc_html($cats[0]->name); ?></a>
-				<div class="explore">EXPLORE MORE <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+				<div class="explore">EXPLORE MORE <?php echo category_description(); ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 
         <div id="scrollto"></div>
 			</div>
@@ -48,9 +48,11 @@ if (!is_single()) :
 
 		<div class="filter">
 		  <div class="site-width">
-		    <a href="<?php echo site_url(); ?>/stories-and-progress/">ALL</a>
-		    <a href="<?php echo site_url(); ?>/category/story/">STORIES</a>
-		    <a href="<?php echo site_url(); ?>/category/progress/">PROGRESS</a>
+		    <a href="<?php echo site_url(); ?>/campaign-news/">ALL</a>
+		    <?php if (get_category_by_slug('story')->category_count > 0) echo '<a href="' . site_url() . '/category/story/">STORIES</a>'; ?>
+        <?php if (get_category_by_slug('progress')->category_count > 0) echo '<a href="' . site_url() . '/category/progress/">PROGRESS</a>'; ?>
+        <?php if (get_category_by_slug('event')->category_count > 0) echo '<a href="' . site_url() . '/category/event/">EVENTS</a>'; ?>
+        <?php if (get_category_by_slug('video')->category_count > 0) echo '<a href="' . site_url() . '/category/video/">VIDEOS</a>'; ?>
 		  </div>
 		</div>
 

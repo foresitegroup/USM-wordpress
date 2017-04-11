@@ -375,4 +375,7 @@ add_filter('previous_post_link', 'post_link_attributes_prev');
 add_filter('next_post_link', 'post_link_attributes_next');
 function post_link_attributes_prev($output) { return str_replace('<a href=', '<a class="prev" href=', $output); }
 function post_link_attributes_next($output) { return str_replace('<a href=', '<a class="next" href=', $output); }
+
+// Remove p tags from category description
+remove_filter('term_description','wpautop');
 ?>

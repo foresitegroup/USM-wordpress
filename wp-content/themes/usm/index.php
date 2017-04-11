@@ -45,7 +45,7 @@ endif;
 
 <div class="goals-contact yellow">
 	<div class="site-width">
-		<p>Please share your Common Bond.</p>
+		<p>Support Our Common Bond and share your story.</p>
 
 		<p><a href="<?php echo home_url('/contact/'); ?>">Contact Us</a></p>
 	</div>

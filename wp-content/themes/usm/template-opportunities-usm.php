@@ -26,7 +26,7 @@ endif;
     <?php echo do_shortcode('[insert page="usm-fund-giving-societies" display="content"]'); ?>
   </div>
 
-  <a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION</a>
+  <a href="/contact/" class="more">I WOULD LIKE MORE INFORMATION</a>
 </div>
 
 <div class="goals-contact yellow">

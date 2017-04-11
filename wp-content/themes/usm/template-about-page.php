@@ -10,6 +10,12 @@ get_header();
   </div>
 </div>
 
+<div class="about-gift">
+  <div class="site-width">
+    <?php echo do_shortcode('[insert page="about-gift" display="content"]'); ?>
+  </div>
+</div>
+
 <div class="site-width about-content">
   <?php
   if ( have_posts() ) :
@@ -20,12 +26,6 @@ get_header();
   	get_template_part( 'template-parts/post/content', 'none' );
   endif;
   ?>
-</div>
-
-<div class="about-gift">
-  <div class="site-width">
-    <?php echo do_shortcode('[insert page="about-gift" display="content"]'); ?>
-  </div>
 </div>
 
 <div class="about-cabinet-header overlay"<?php echo "style=\"background-image: url(" . wp_get_attachment_url(get_post_thumbnail_id(327)) . ")\""; ?>>

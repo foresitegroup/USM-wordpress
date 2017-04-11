@@ -3,7 +3,7 @@
 
 get_header();
 
-$TotalRaisedText = "<div class=\"bluetext\">OUR CAMPAIGN GOAL IS $" . number_format(get_theme_mod('capital_goal') + get_theme_mod('endowment_goal') + get_theme_mod('usm_goal')) . "</div>";
+$TotalRaisedText = "<div class=\"bluetext\">OUR COMPREHENSIVE CAMPAIGN GOAL IS $" . number_format(get_theme_mod('capital_goal') + get_theme_mod('endowment_goal') + get_theme_mod('usm_goal')) . "</div>";
 
 // Show the selected capital page content.
 if ( have_posts() ) :
@@ -21,7 +21,7 @@ endif;
 
 <div class="gifts-progress overlay"<?php echo "style=\"background-image: url(" . wp_get_attachment_url(374) . ")\""; ?>>
   <div class="site-width">
-    OUR PROGRESS SINCE 2017, TOGETHER WE'VE RAISED:
+    TOGETHER WE HAVE RAISED A TOTAL OF
 
     <div id="total-raised"><noscript>
       $<?php
@@ -29,6 +29,8 @@ endif;
       echo number_format($TotalRaised);
       ?>
     </noscript></div>
+
+    TOWARD OUR $<?php echo number_format(get_theme_mod('capital_goal') + get_theme_mod('endowment_goal') + get_theme_mod('usm_goal')); ?> CAMPAIGN GOAL.
   </div>
 </div>
 

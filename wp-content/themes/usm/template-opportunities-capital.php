@@ -12,21 +12,8 @@ else : // I'm not sure it's possible to have no posts when this page is shown, b
 	get_template_part( 'template-parts/post/content', 'none' );
 endif;
 
-$MoreInfo = '<a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION</a>';
+$MoreInfo = '<a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION</a><div class="keepscrolling">SEE MORE OPPORTUNITIES</div>';
 ?>
-
-<div class="opportunities-section-title">
-  <div class="site-width">
-    <?php echo do_shortcode('[insert page="commons-upper-school-entrance" display="title"]'); ?>
-  </div>
-</div>
-<div class="site-width opportunities-section">
-  <div class="opp-three-col">
-    <?php echo do_shortcode('[insert page="commons-upper-school-entrance" display="content"]'); ?>
-  </div>
-
-  <?php echo $MoreInfo; ?>
-</div>
 
 <div class="opportunities-section-title">
   <div class="site-width">
@@ -56,12 +43,12 @@ $MoreInfo = '<a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION
 
 <div class="opportunities-section-title">
   <div class="site-width">
-    <?php echo do_shortcode('[insert page="innovation-center" display="title"]'); ?>
+    <?php echo do_shortcode('[insert page="commons-upper-school-entrance" display="title"]'); ?>
   </div>
 </div>
 <div class="site-width opportunities-section">
   <div class="opp-three-col">
-    <?php echo do_shortcode('[insert page="innovation-center" display="content"]'); ?>
+    <?php echo do_shortcode('[insert page="commons-upper-school-entrance" display="content"]'); ?>
   </div>
 
   <?php echo $MoreInfo; ?>
@@ -69,12 +56,12 @@ $MoreInfo = '<a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION
 
 <div class="opportunities-section-title">
   <div class="site-width">
-    <?php echo do_shortcode('[insert page="quadracci-lodge-area" display="title"]'); ?>
+    <?php echo do_shortcode('[insert page="innovation-center" display="title"]'); ?>
   </div>
 </div>
 <div class="site-width opportunities-section">
   <div class="opp-three-col">
-    <?php echo do_shortcode('[insert page="quadracci-lodge-area" display="content"]'); ?>
+    <?php echo do_shortcode('[insert page="innovation-center" display="content"]'); ?>
   </div>
 
   <?php echo $MoreInfo; ?>
@@ -95,12 +82,12 @@ $MoreInfo = '<a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION
 
 <div class="opportunities-section-title">
   <div class="site-width">
-    <?php echo do_shortcode('[insert page="upper-school-administrative-suite-main-hallway" display="title"]'); ?>
+    <?php echo do_shortcode('[insert page="quadracci-lodge-area" display="title"]'); ?>
   </div>
 </div>
 <div class="site-width opportunities-section">
   <div class="opp-three-col">
-    <?php echo do_shortcode('[insert page="upper-school-administrative-suite-main-hallway" display="content"]'); ?>
+    <?php echo do_shortcode('[insert page="quadracci-lodge-area" display="content"]'); ?>
   </div>
 
   <?php echo $MoreInfo; ?>

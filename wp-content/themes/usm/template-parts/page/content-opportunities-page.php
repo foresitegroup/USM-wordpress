@@ -15,8 +15,6 @@ global $TotalRaisedText;
 <div class="opportunities-header">
   <div class="site-width">
     <div class="opportunities-text">
-      <div class="greentext">OPPORTUNITIES</div>
-
       <?php the_title('<h2>', '</h2>'); ?>
       <?php the_content(); ?>
 
