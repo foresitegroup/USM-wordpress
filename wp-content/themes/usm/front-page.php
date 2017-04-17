@@ -30,13 +30,13 @@ function nice_number($num) {
 ?>
 
 <div class="home-progress">
-  OUR PROGRESS TODAY, TOGETHER WE'VE RAISED:
+  TOGETHER WE HAVE RAISED A TOTAL OF
 
   <div id="total-raised"><noscript>$<?php echo number_format($TotalRaised); ?></noscript></div>
 
   <div id="total-raised-bar"></div>
 
-  TOWARDS OUR CAMPAIGN GOAL OF $<?php echo number_format($TotalGoal); ?>:
+  TOWARDS OUR $<?php echo number_format($TotalGoal); ?> CAMPAIGN GOAL.
 
   <div class="site-width">
     <div class="one-third">
@@ -128,7 +128,7 @@ function nice_number($num) {
       }, 2000);
 
       this.destroy();
-    },{offset: '75%'});
+    },{offset: '100%'});
 
     $(".home-progress .site-width").waypoint(function() {
       $(".home-progress .one-third .circle .preload").removeClass("preload");

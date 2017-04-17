@@ -1,16 +1,96 @@
 <?php
+if (is_single()) :
+  the_post();
+  $BlogInc = '
+  <meta property="og:title" content="'.get_the_title().'" />
+  <meta property="og:image" content="'.wp_get_attachment_url(get_post_thumbnail_id()).'" />
+  <meta property="og:url" content="'.get_permalink().'" />
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="'.get_the_title().'">
+  <meta name="twitter:description" content="'.get_the_excerpt().'">
+  <meta name="twitter:image" content="'.wp_get_attachment_url(get_post_thumbnail_id()).'">
+  ';
+endif;
+
 get_header();
 
 if ( have_posts() ) :
-	$PostCount = 1;
+  $args = array('posts_per_page' => 1, 'meta_key' => 'featured-checkbox', 'meta_value' => 'yes');
+  $argsnf = array('posts_per_page' => 1, 'order' => 'DESC', 'orderby' => 'date');
+
+  if (is_archive()) :
+    $cats = get_the_category();
+    $args['category_name'] = esc_html($cats[0]->slug);
+    $argsnf['category_name'] = esc_html($cats[0]->slug);
+  endif;
+
+  /* Look for Featured Post in category */
+  $featured = new WP_Query($args);
+
+  if ($featured->have_posts()):
+    $featured->the_post();
+  else :
+    /* No Featured Post so just get the most recent */
+    $nofeatured = get_posts($argsnf);
+    foreach ($nofeatured as $post) : setup_postdata( $post ); endforeach;
+  endif;
+
+  $featuredID = $post->ID;
+
+  /* Give the Featured or most recent post the hero treatment */
+  ?>
+
+  <div class="first-post overlay" style="background-image: url(<?php echo wp_get_attachment_url(get_post_thumbnail_id()); ?>);">
+    <div class="site-width">
+      <?php //the_date('F j, Y', '<h3>', '</h3>'); ?> 
+
+      <?php
+      the_title('<h1>', '</h1>');
+
+      $Action = "Read";
+      $cats = get_the_category();
+      if (esc_html($cats[0]->name) == "Event") $Action = "View";
+      if (esc_html($cats[0]->name) == "Video") $Action = "Watch";
+      $CatName = esc_html($cats[0]->name);
+      ?>
+
+      <a href="<?php echo get_permalink(); ?>"><?php echo $Action . " " . $CatName; ?></a>
+      <div class="explore">EXPLORE MORE <?php echo category_description(); ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+
+      <div id="scrollto"></div>
+    </div>
+  </div>
   
+  <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.scrollTo.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $(".explore").click(function(e) {
+        $.scrollTo("#scrollto",{duration: 500});
+        e.preventDefault();
+      });
+
+      $(".filter [href]").each(function() {
+        if (this.href == window.location.href) { $(this).addClass("current"); }
+      });
+    });
+  </script>
+
+  <div class="filter">
+    <div class="site-width">
+      <a href="<?php echo site_url(); ?>/campaign-news/">ALL</a>
+      <?php if (get_category_by_slug('story')->category_count > 0) echo '<a href="' . site_url() . '/category/story/">STORIES</a>'; ?>
+      <?php if (get_category_by_slug('progress')->category_count > 0) echo '<a href="' . site_url() . '/category/progress/">PROGRESS</a>'; ?>
+      <?php if (get_category_by_slug('event')->category_count > 0) echo '<a href="' . site_url() . '/category/event/">EVENTS</a>'; ?>
+      <?php if (get_category_by_slug('video')->category_count > 0) echo '<a href="' . site_url() . '/category/video/">VIDEOS</a>'; ?>
+    </div>
+  </div>
+
+  <?php
   echo '<div class="site-width">';
 
 	/* Start the Loop */
 	while ( have_posts() ) : the_post();
 		get_template_part( 'template-parts/post/content', get_post_format() );
-
-    $PostCount++;
 	endwhile;
   
   echo '</div>';

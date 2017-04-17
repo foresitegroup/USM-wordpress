@@ -1,3 +1,4 @@
+<?php global $BlogInc; ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?> class="no-js no-svg">
 <head>
@@ -12,6 +13,8 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
+
+  <?php if (isset($BlogInc)) echo $BlogInc; ?>
 
 	<link rel="shortcut icon" type="image/x-icon" href="<?php echo get_template_directory_uri(); ?>/images/favicon.ico">
 	<link rel="apple-touch-icon" href="<?php echo get_template_directory_uri(); ?>/images/apple-touch-icon.png">

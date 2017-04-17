@@ -2546,7 +2546,7 @@ A.logo DIV {
 .contribution-level {
   display: inline-block;
   width: 22%;
-  margin: 3em 3.6% 3em 0;
+  margin: 2em 3.6% 2em 0;
   color: #7D7D7D;
   font-weight: 700;
   font-size: 18px;
@@ -3378,7 +3378,7 @@ A#loadmore:active {
 }
 
 @media only screen and (max-width: 1024px) {
-    .menu-main-menu-container {
+  .menu-main-menu-container {
     display: none;
   }
   .site-width-small {
@@ -3611,7 +3611,7 @@ A#loadmore:active {
 
   .opportunities-menu UL LI { vertical-align: middle; width: 44%; }
 
-  .contribution-level { width: 30.6%; }
+  .contribution-level { width: 30.6%; margin: 2em 3.5% 2em 0; }
   .contribution-level:nth-of-type(4n+4) { margin-right: 3.5%; }
   .contribution-level:nth-of-type(3n+3) { margin-right: 0; }
   
@@ -3640,6 +3640,9 @@ A#loadmore:active {
 
   #opportunities { padding: 40px 70px 40px 50px; }
   #opportunities .listradio-container .nf-field { top: 0; }
+
+  .first-post { height: auto; padding: 2em 0 3em; }
+  .first-post .site-width { position: relative; top: 0; left: 0; transform: none; }
 
   .index-post:link, .index-post:visited,
   .index-post:nth-of-type(3n+3) { width: 47.2%; margin-right: 5%; }
@@ -3761,12 +3764,14 @@ A#loadmore:active {
 
   .usm-fund-logo { top: 4em; }
 
+  .opportunities-menu UL LI { width: 100%; margin: 0.25em 0; }
+
   .opportunities-text { width: 100%; padding-bottom: 550px; }
   .opportunities-image { top: auto; bottom: 0; width: 100%; height: 500px; }
 
   .contribution-level,
   .contribution-level:nth-of-type(4n+4),
-  .contribution-level:nth-of-type(3n+3) { width: 44%; margin-right: 10.5%; }
+  .contribution-level:nth-of-type(3n+3) { width: 44%; margin: 1em 10.5% 1em 0; }
   .contribution-level:nth-of-type(2n+2) { margin-right: 0; }
 
   .opportunities-section-title H1 { font-size: 33px; line-height: 1.2em; }
@@ -3808,6 +3813,10 @@ A#loadmore:active {
 
   .first-post A:link, .first-post A:visited { margin: 0 2em 2em; }
   .first-post .explore { margin: 0 2em; }
+}
+
+@media only screen and (max-width: 555px) {
+  .goals-menu UL LI { width: 100%; padding: 0.25em 0; }
 }
 
 @media only screen and (max-width: 480px) {
@@ -3906,8 +3915,6 @@ A#loadmore:active {
     font-size: 22px;
   }
 
-  .goals-menu UL LI { width: 100%; }
-
   .goals-two-col, .goals-cols { margin: 1em 0; }
 
   .goals-two-col-images { height: auto; }
@@ -3934,8 +3941,6 @@ A#loadmore:active {
   .goals-footer .one-fourth H2 { font-size: 60px; }
 
   .usm-fund-logo { top: 2em; }
-
-  .opportunities-menu UL LI { margin: 0.25em 0; }
 
   .contribution-level,
   .contribution-level:nth-of-type(4n+4),

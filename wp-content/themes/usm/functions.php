@@ -378,4 +378,67 @@ function post_link_attributes_next($output) { return str_replace('<a href=', '<a
 
 // Remove p tags from category description
 remove_filter('term_description','wpautop');
+
+
+// Add Featured Post checkbox to post admin page
+function fg_custom_meta() {
+  add_meta_box('fg_meta', __('Featured Post', 'fg-textdomain'), 'fg_meta_callback', 'post');
+}
+function fg_meta_callback( $post ) {
+  $featured = get_post_meta( $post->ID );
+  ?>
+  <p>
+    <div class="fg-row-content">
+      <label for="featured-checkbox">
+        <input type="checkbox" name="featured-checkbox" id="featured-checkbox" value="Yes" <?php if (isset($featured['featured-checkbox'])) checked($featured['featured-checkbox'][0], 'Yes'); ?> />
+        <?php _e('Make this the featured post for this category', 'fg-textdomain')?>
+      </label>
+    </div>
+  </p>
+  <?php
+}
+add_action( 'add_meta_boxes', 'fg_custom_meta' );
+
+// Saves the Featured Post input
+function fg_meta_save( $post_id ) {
+  // Checks save status
+  $is_autosave = wp_is_post_autosave( $post_id );
+  $is_revision = wp_is_post_revision( $post_id );
+  $is_valid_nonce = ( isset( $_POST[ 'fg_nonce' ] ) && wp_verify_nonce( $_POST[ 'fg_nonce' ], basename( __FILE__ ) ) ) ? 'true' : 'false';
+
+  // Exits script depending on save status
+  if ( $is_autosave || $is_revision || !$is_valid_nonce ) return;
+
+  // Checks for input and saves
+  $fp_input = (isset($_POST[ 'featured-checkbox' ])) ? 'Yes' : '';
+  update_post_meta( $post_id, 'featured-checkbox', $fp_input);
+}
+add_action( 'save_post', 'fg_meta_save' );
+
+// Add Featured Post column to admin post list
+add_filter( 'manage_edit-post_columns', 'admin_post_header_columns', 10, 1);
+add_action( 'manage_posts_custom_column', 'admin_post_data_row', 10, 2);
+function admin_post_header_columns($columns) {
+  if (!isset($columns['featured-checkbox'])) $columns['featured-checkbox'] = "Featured";
+  unset($columns['comments']); // Remove Comments column while we're at it
+  return $columns;
+}
+function admin_post_data_row($column_name, $post_id) {
+  switch($column_name) {
+    case 'featured-checkbox':    
+      $featuredpost = get_post_meta($post_id, 'featured-checkbox', true);
+      if ($featuredpost) echo $featuredpost;
+      break;    
+    default:
+      break;
+  }
+}
+
+// Style the Featured Post admin column
+add_action('admin_head', 'my_admin_styles');
+function my_admin_styles() {
+  echo '<style>
+    .fixed .column-featured-checkbox { width: 10%; }
+  </style>';
+}
 ?>
