@@ -15,16 +15,26 @@ global $featuredID;
 if (!is_single()) :
 	if ($post->ID != $featuredID) :
 	  /* ALL THE OTHER PAST POSTS BESIDES THE HERO */
+    $cats = get_the_category();
+    if (esc_html($cats[0]->name) == "Video") {
+      $TheLink = get_field("video_url");
+      $AddClass = " video-popup";
+      $TheContent = "";
+    } else {
+      $TheLink = get_permalink();
+      $AddClass = "";
+      $TheContent = get_the_excerpt();
+    }
 	  ?>
-	  <a href="<?php echo get_permalink(); ?>" class="index-post" style="display: none;">
+	  <a href="<?php echo $TheLink; ?>" class="index-post<?php echo $AddClass; ?>" style="display: none;">
 	  	<div class="index-post-image" style="<?php echo (wp_get_attachment_url(get_post_thumbnail_id()) != "") ? "background-image: url(" . wp_get_attachment_url(get_post_thumbnail_id()) . ")" : "padding-top: 0"; ?>"></div>
       
       <div class="index-post-content">
-		  	<h4><?php $cats = get_the_category(); echo esc_html($cats[0]->name); ?></h4>
+		  	<h4><?php echo esc_html($cats[0]->name); ?></h4>
 
 		  	<?php the_title('<h2>', '</h2>'); ?>
 
-		  	<?php echo get_the_excerpt(); ?>
+		  	<?php echo $TheContent; ?>
 
 		  	<h3><?php echo get_the_date('F j, Y'); ?></h3>
 		  </div>
@@ -83,5 +93,4 @@ else :
 			?>
 	  </div>
 	</div>
-	<div class="site-width">
 <?php endif; ?>

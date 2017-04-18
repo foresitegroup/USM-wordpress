@@ -44,7 +44,7 @@
         }
       });
 
-      $('.video-popup').magnificPopup({
+      $('.video-popup, .video-popup-hero').magnificPopup({
         type: 'iframe',
         iframe: {
           patterns: {

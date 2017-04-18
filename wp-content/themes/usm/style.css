@@ -3069,6 +3069,19 @@ A.logo DIV {
   font-size: 150%;
 }
 
+.index-post .play {
+  top: auto;
+  transform: translateX(-50%);
+  bottom: 4em;
+  border-color: #00CCCC;
+}
+
+.index-post .play:before {
+  border-color: transparent transparent transparent #00CCCC;
+}
+
+.video-popup-hero { outline: 0; }
+
 .index-post-loadmore {
   padding: 4em 0 7em;
   text-align: center;

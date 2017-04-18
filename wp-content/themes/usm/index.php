@@ -50,11 +50,18 @@ if ( have_posts() ) :
       $Action = "Read";
       $cats = get_the_category();
       if (esc_html($cats[0]->name) == "Event") $Action = "View";
-      if (esc_html($cats[0]->name) == "Video") $Action = "Watch";
+      if (esc_html($cats[0]->name) == "Video") {
+        $Action = "Watch";
+        $TheLink = get_field("video_url");
+        $AddClass = ' class="video-popup-hero"';
+      } else {
+        $TheLink = get_permalink();
+        $AddClass = "";
+      }
       $CatName = esc_html($cats[0]->name);
       ?>
 
-      <a href="<?php echo get_permalink(); ?>"><?php echo $Action . " " . $CatName; ?></a>
+      <a href="<?php echo $TheLink; ?>"<?php echo $AddClass; ?>><?php echo $Action . " " . $CatName; ?></a>
       <div class="explore">EXPLORE MORE <?php echo category_description(); ?> <i class="fa fa-chevron-down" aria-hidden="true"></i></div>
 
       <div id="scrollto"></div>
