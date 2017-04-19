@@ -104,7 +104,7 @@
 		<div class="video-banner">
 			<div class="site-width home-menu">
 				<?php wp_nav_menu(array('theme_location' => 'top-menu')); ?>
-		    <?php echo get_theme_mod('usm_phone_number'); ?>
+		    <a href="tel:<?php echo get_theme_mod('usm_phone_number'); ?>"><?php echo get_theme_mod('usm_phone_number'); ?></a>
 		  </div>
 
 			<video playsinline autoplay muted loop poster="<?php echo get_header_image(); ?>">
