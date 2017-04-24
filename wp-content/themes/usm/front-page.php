@@ -193,16 +193,21 @@ function nice_number($num) {
 
 <div id="home-stories">
   <?php
-  $query = new WP_Query(array('category_name' => 'story', 'posts_per_page' => 1));
+  $query = new WP_Query(array('category_name' => 'story', 'posts_per_page' => 1, 'order' => 'DESC', 'orderby' => 'date', 'meta_key' => 'featured-checkbox', 'meta_value' => 'yes'));
+  
+  if ($query->post_count == 0) $query = new WP_Query(array('category_name' => 'story', 'posts_per_page' => 1));
 
   while ($query -> have_posts()) : $query -> the_post();
     $TheImage = wp_get_attachment_url(get_post_thumbnail_id());
     $TheTitle = get_the_title();
     $TheLink = get_the_permalink();
+    $TheQuote = get_field("quote");
     $TheQuoteAuthor = get_field("quote_author");
     $TheQuoteAuthorTitle = get_field("quote_author_title");
   endwhile;
   wp_reset_postdata();
+
+  $HomeTitle = ($TheQuote != "") ? $TheQuote : $TheTitle;
   ?>
   <div class="home-stories-image" style="background-image: url(<?php echo $TheImage; ?>);"></div>
 
@@ -210,7 +215,7 @@ function nice_number($num) {
     <div class="home-stories-text">
       <h5>CAMPAIGN NEWS</h5>
 
-      <h2><?php echo $TheTitle; ?></h2>
+      <h2><?php echo $HomeTitle; ?></h2>
 
       <div class="attr">
         <strong><?php echo $TheQuoteAuthor; ?></strong><br>
@@ -218,7 +223,7 @@ function nice_number($num) {
       </div>
 
       <a href="<?php echo $TheLink; ?>" class="read">READ STORY</a>
-      <a href="<?php echo site_url(); ?>/stories-and-progress/">EXPLORE MORE <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+      <a href="<?php echo site_url(); ?>/campaign-news/">EXPLORE MORE <i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
     </div>
   </div>
 </div>
