@@ -36,7 +36,7 @@ function nice_number($num) {
 
   <div id="total-raised-bar"></div>
 
-  TOWARDS OUR $<?php echo number_format($TotalGoal); ?> CAMPAIGN GOAL.
+  TOWARDS OUR $<?php echo number_format($TotalGoal); ?> CAMPAIGN GOAL. THANK YOU.
 
   <div class="site-width">
     <div class="one-third">

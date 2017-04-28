@@ -2670,6 +2670,8 @@ A.logo DIV {
   padding: 6em 0;
 }
 
+.opp-four-col H3 { font-size: 36px; }
+
 .opp-three-col {
   color: #7D7D7D;
   font-weight: 700;
@@ -2680,17 +2682,7 @@ A.logo DIV {
   column-count: 3;
 }
 
-.opp-four-col {
-  font-weight: 700;
-  font-size: 17px;
-  line-height: 1.6em;
-  -webkit-column-count: 4;
-  -moz-column-count: 4;
-  column-count: 4;
-}
-
-.opp-three-col P,
-.opp-four-col P {
+.opp-three-col P {
   margin: 0;
   padding-bottom: 1.6em;
   -webkit-column-break-inside: avoid;
@@ -2701,12 +2693,6 @@ A.logo DIV {
 .opp-three-col STRONG {
   color: #363636;
   font-size: 17px;
-}
-
-.opp-four-col .note {
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 1em;
 }
 
 .opportunities-section A.more:link,
@@ -3443,6 +3429,7 @@ A#loadmore:active {
 
   .contribution-level { margin-right: 3.5%; }
   .contribution-level H3 { font-size: 42px; }
+  .opp-four-col .contribution-level H3 { font-size: 32px; }
 
   .about-quote .wp-caption-text { margin-bottom: 2em; }
 
@@ -3638,7 +3625,6 @@ A#loadmore:active {
   .opportunities-section-title { line-height: 1.2em; }
 
   .opp-three-col { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; }
-  .opp-four-col { -webkit-column-count: 3; -moz-column-count: 3; column-count: 3; }
 
   .contact-form { float: none; width: 100%; margin-bottom: 5em; }
   .contact-sidebar { float: none; width: 100%; }
@@ -3793,7 +3779,6 @@ A#loadmore:active {
   .contribution-level:nth-of-type(2n+2) { margin-right: 0; }
 
   .opportunities-section-title H1 { font-size: 33px; line-height: 1.2em; }
-  .opp-four-col { -webkit-column-count: 2; -moz-column-count: 2; column-count: 2; }
 
   .contact-footer:before { padding-top: 75%; }
 
@@ -3966,7 +3951,6 @@ A#loadmore:active {
   .contribution-level:nth-of-type(2n+2) { width: 100%; margin-right: 0; }
 
   .opp-three-col { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; }
-  .opp-four-col { -webkit-column-count: 1; -moz-column-count: 1; column-count: 1; }
 
   .contact-footer:before { padding-top: 100%; }
   .contact-footer .site-width-small { font-size: 36px; }
