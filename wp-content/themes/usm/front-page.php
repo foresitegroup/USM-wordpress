@@ -34,7 +34,8 @@ function nice_number($num) {
 
   <div id="total-raised"><noscript>$<?php echo number_format($TotalRaised); ?></noscript></div>
 
-  <div id="total-raised-bar"></div>
+  <div id="total-raised-bar"><div class="outer-therm" style="width: <?php echo $TotalPercent; ?>%;"><div class="inner-therm"><span><?php echo $TotalPercent; ?>%</span></div></div></div>
+  <!-- <div id="total-raised-bar"></div> -->
 
   TOWARDS OUR $<?php echo number_format($TotalGoal); ?> CAMPAIGN GOAL. THANK YOU.
 
@@ -112,13 +113,13 @@ function nice_number($num) {
     $(".home-progress").waypoint(function() {
       totalRaised.start();
 
-      $('#total-raised-bar').jQMeter({
-        goal: '<?php echo $TotalGoal; ?>',
-        raised: '<?php echo $TotalRaised; ?>',
-        height: '12px',
-        bgColor: '#D7D7D7',
-        barColor: '#00CCCC'
-      });
+      // $('#total-raised-bar').jQMeter({
+      //   goal: '<?php echo $TotalGoal; ?>',
+      //   raised: '<?php echo $TotalRaised; ?>',
+      //   height: '12px',
+      //   bgColor: '#D7D7D7',
+      //   barColor: '#00CCCC'
+      // });
 
       setTimeout(function(){
         if (<?php echo $TotalPercent; ?> == 100) {

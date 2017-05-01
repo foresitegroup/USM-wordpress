@@ -889,6 +889,11 @@ A.logo DIV {
   margin: 22px 0 4.5em;
 }
 
+.outer-therm {
+  background: #00CCCC;
+  height: 12px;
+}
+
 .inner-therm {
   position: relative;
   overflow: visible !important;
