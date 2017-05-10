@@ -50,7 +50,7 @@ global $usmgoal_color;
     </div>
 
     <div id="<?php echo $usmgoal; ?>-raised"><noscript>$<?php echo number_format($Raised); ?></noscript></div>
-    <div class="goal">Goal: $<?php echo nice_number($Goal); ?></div>
+    <div class="goal">Goal: $<?php echo nice_number($Goal); if ($usmgoal == "usm") echo " (Over 5 Years)"; ?></div>
     
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/jquery.scrollTo.min.js"></script>
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/countUp.min.js"></script>
