@@ -61,9 +61,10 @@ global $usmgoal_color;
           $.scrollTo("#scrolldown",{duration: 600});
           e.preventDefault();
         });
-
+        
+        <?php $Value = ($Percent > 99) ? "1." . $Percent : "0." . $Percent; ?>
         $('#<?php echo $usmgoal; ?>-circle').circleProgress({
-          value: 0.<?php echo $Percent; ?>, fill: '<?php echo $usmgoal_color; ?>', size: $('.goal-meter .circle').width(),
+          value: <?php echo $Value; ?>, fill: '<?php echo $usmgoal_color; ?>', size: $('.goal-meter .circle').width(),
           emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 21, animation: { duration: 2000 }
         });
         

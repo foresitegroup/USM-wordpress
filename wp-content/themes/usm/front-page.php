@@ -133,19 +133,22 @@ function nice_number($num) {
 
     $(".home-progress .site-width").waypoint(function() {
       $(".home-progress .one-third .circle .preload").removeClass("preload");
-
+      
+      <?php $CapitalValue = ($CapitalPercent > 99) ? "1." . $CapitalPercent : "0." . $CapitalPercent; ?>
       $('#capital-circle').circleProgress({
-        value: 0.<?php echo $CapitalPercent; ?>, fill: '#A1B434', size: $('.home-progress .one-third .circle').width(),
+        value: <?php echo $CapitalValue; ?>, fill: '#A1B434', size: $('.home-progress .one-third .circle').width(),
         emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15, animation: { duration: 2000 }
       });
-
+      
+      <?php $EndowmentValue = ($EndowmentPercent > 99) ? "1." . $EndowmentPercent : "0." . $EndowmentPercent; ?>
       $('#endowment-circle').circleProgress({
-        value: 0.<?php echo $EndowmentPercent; ?>, fill: '#EDA50B', size: $('.home-progress .one-third .circle').width(),
+        value: <?php echo $EndowmentValue; ?>, fill: '#EDA50B', size: $('.home-progress .one-third .circle').width(),
         emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15, animation: { duration: 2000 }
       });
-
+      
+      <?php $USMValue = ($USMPercent > 99) ? "1." . $USMPercent : "0." . $USMPercent; ?>
       $('#usm-circle').circleProgress({
-        value: 0.<?php echo $USMPercent; ?>, fill: '#003366', size: $('.home-progress .one-third .circle').width(),
+        value: <?php echo $USMValue; ?>, fill: '#003366', size: $('.home-progress .one-third .circle').width(),
         emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15, animation: { duration: 2000 }
       });
 
