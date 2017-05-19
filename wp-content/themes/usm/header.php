@@ -48,7 +48,7 @@
         type: 'iframe',
         iframe: {
           patterns: {
-            youtube: { index: 'youtube.com/', id: 'v=', src: 'http://www.youtube.com/embed/%id%?rel=0&autoplay=1' }
+            youtube: { index: 'youtube.com/', id: 'v=', src: '//www.youtube.com/embed/%id%?rel=0&autoplay=1' }
           }
         }
       });
