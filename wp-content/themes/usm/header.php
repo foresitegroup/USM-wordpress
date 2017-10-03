@@ -34,7 +34,8 @@
 	  var $ = jQuery.noConflict();
 
 	  $(document).ready(function() {
-	  	$("a[href^='http'], a[href$='.pdf']").not("[href*='" + window.location.host + "']").attr('target','_blank');
+	  	$("a[href^='http']").not("[href*='" + window.location.host + "']").prop('target','new');
+      $("a[href$='.pdf']").prop('target', 'new');
 
       $(".video-popup").each(function(){
         if ($(this).data('text')) {
