@@ -3356,6 +3356,29 @@ A#loadmore:active {
   color: #EDA50B;
 }
 
+.blog-newsletter {
+  border-top: 1px solid #C4C4C4;
+  padding: 8em 0;
+  text-align: center;
+}
+
+.blog-newsletter H3 {
+  font-size: 62px;
+  line-height: 1.2em;
+}
+
+.blog-newsletter A:link,
+.blog-newsletter A:visited {
+  color: #363636;
+  font-weight: 700;
+  font-size: 125%;
+}
+
+.blog-newsletter A:hover,
+.blog-newsletter A:active {
+  color: #EDA50B;
+}
+
 
 @media only screen and (max-width: 1200px) {
   .site-width,
@@ -3821,6 +3844,8 @@ A#loadmore:active {
 
   .first-post A:link, .first-post A:visited { margin: 0 2em 2em; }
   .first-post .explore { margin: 0 2em; }
+
+  .blog-newsletter H3 { font-size: 38px; }
 }
 
 @media only screen and (max-width: 555px) {

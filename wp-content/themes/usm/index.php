@@ -130,6 +130,12 @@ else :
 endif;
 ?>
 
+<div class="blog-newsletter">
+  <div class="site-width">
+    <?php echo do_shortcode('[insert page="newsletter-footer" display="content"]'); ?>
+  </div>
+</div>
+
 <div class="goals-contact yellow">
 	<div class="site-width">
 		<p>Support Our Common Bond and share your story.</p>
