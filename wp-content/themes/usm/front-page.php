@@ -192,7 +192,7 @@ function nice_number($num) {
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/slick/slick.min.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/slick/slick.init.home-slider.js"></script>
   <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/slick/slick.init.home-slider-inner.js"></script>
-  <?php echo do_shortcode('[insert page="home-slider" display="content"]'); ?>
+  <?php echo do_shortcode('[insert page="home-slider" display="content" class="insert-page-home-slider"]'); ?>
 </div>
 
 <div id="home-stories">
