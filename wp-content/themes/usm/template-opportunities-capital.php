@@ -56,12 +56,12 @@ $MoreInfo = '<a href="#opportunities" class="more">I WOULD LIKE MORE INFORMATION
 
 <div class="opportunities-section-title">
   <div class="site-width">
-    <?php echo do_shortcode('[insert page="innovation-center" display="title"]'); ?>
+    <?php echo do_shortcode('[insert page="395" display="title"]'); // Innovation Center ?>
   </div>
 </div>
 <div class="site-width opportunities-section">
   <div class="opp-three-col">
-    <?php echo do_shortcode('[insert page="innovation-center" display="content"]'); ?>
+    <?php echo do_shortcode('[insert page="395" display="content"]'); // Innovation Center ?>
   </div>
 
   <?php echo $MoreInfo; ?>
