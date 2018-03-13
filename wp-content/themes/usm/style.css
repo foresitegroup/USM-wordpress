@@ -918,11 +918,11 @@ A.logo DIV {
   padding: 0 !important;
   position: absolute;
   right: -1.1em;
-  top: -22px;
+  bottom: -100%;
   z-index: 7;
   color: #00CCCC;
   font-weight: 800;
-  font-size: 16px;
+  font-size: 48px;
   line-height: 1em;
 }
 
