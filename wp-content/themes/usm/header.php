@@ -6,8 +6,9 @@
 
   <title>
     <?php
-    echo get_bloginfo('name');
-    if(!is_home() || !is_front_page()) wp_title('|');
+    // echo get_bloginfo('name');
+    // if(!is_home() || !is_front_page()) wp_title('|');
+    wp_title('');
     ?>
   </title>
 
