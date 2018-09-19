@@ -42,25 +42,6 @@ function nice_number($num) {
   <div class="site-width">
     <div class="one-third">
       <div class="circle">
-        <div id="capital-circle" class="preload"></div>
-
-        <div class="circle-text">
-          Capital
-          <div id="capital-percent"><?php echo $CapitalPercent . "%"; ?></div>
-        </div>
-      </div>
-      
-      <div class="one-third-text">
-        <div id="capital-raised"><noscript>$<?php echo number_format(get_theme_mod('capital_raised')); ?></noscript></div>
-        <div class="goal">Goal: $<?php echo nice_number(get_theme_mod('capital_goal')); ?></div>
-        <?php echo get_theme_mod('capital_home_text'); ?><br>
-
-        <a href="<?php echo site_url(); ?>/capital">LEARN MORE</a>
-      </div>
-    </div>
-
-    <div class="one-third">
-      <div class="circle">
         <div id="endowment-circle" class="preload"></div>
 
         <div class="circle-text">
@@ -94,6 +75,25 @@ function nice_number($num) {
         <?php echo get_theme_mod('usm_fund_home_text'); ?><br>
 
         <a href="<?php echo site_url(); ?>/usm-fund">LEARN MORE</a>
+      </div>
+    </div>
+
+    <div class="one-third">
+      <div class="circle">
+        <div id="capital-circle" class="preload"></div>
+
+        <div class="circle-text">
+          Capital
+          <div id="capital-percent"><?php echo $CapitalPercent . "%"; ?></div>
+        </div>
+      </div>
+      
+      <div class="one-third-text">
+        <div id="capital-raised"><noscript>$<?php echo number_format(get_theme_mod('capital_raised')); ?></noscript></div>
+        <div class="goal">Goal: $<?php echo nice_number(get_theme_mod('capital_goal')); ?></div>
+        <?php echo get_theme_mod('capital_home_text'); ?><br>
+
+        <a href="<?php echo site_url(); ?>/capital">LEARN MORE</a>
       </div>
     </div>
   </div>
