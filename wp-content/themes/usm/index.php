@@ -85,10 +85,12 @@ if ( have_posts() ) :
   <div class="filter">
     <div class="site-width">
       <a href="<?php echo site_url(); ?>/campaign-news/">ALL</a>
-      <?php if (get_category_by_slug('story')->category_count > 0) echo '<a href="' . site_url() . '/category/story/">STORIES</a>'; ?>
-      <?php if (get_category_by_slug('progress')->category_count > 0) echo '<a href="' . site_url() . '/category/progress/">PROGRESS</a>'; ?>
-      <?php if (get_category_by_slug('event')->category_count > 0) echo '<a href="' . site_url() . '/category/event/">EVENTS</a>'; ?>
-      <?php if (get_category_by_slug('video')->category_count > 0) echo '<a href="' . site_url() . '/category/video/">VIDEOS</a>'; ?>
+      <?php
+      if (get_category(10)->category_count > 0) echo '<a href="'.site_url().'/category/'.get_category(10)->slug.'/">'.get_category(10)->description.'</a>';
+      if (get_category(9)->category_count > 0) echo '<a href="'.site_url().'/category/'.get_category(9)->slug.'/">'.get_category(9)->description.'</a>';
+      if (get_category(12)->category_count > 0) echo '<a href="'.site_url().'/category/'.get_category(12)->slug.'/">'.get_category(12)->description.'</a>';
+      if (get_category(13)->category_count > 0) echo '<a href="'.site_url().'/category/'.get_category(13)->slug.'/">'.get_category(13)->description.'</a>';
+      ?>
     </div>
   </div>
 

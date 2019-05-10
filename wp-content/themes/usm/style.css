@@ -2974,6 +2974,7 @@ A.logo DIV {
   padding-left: 1.5em;
   color: #252525;
   letter-spacing: 0.2em;
+  text-transform: uppercase;
   cursor: default;
   position: relative;
 }
