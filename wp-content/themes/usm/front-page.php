@@ -34,7 +34,13 @@ function nice_number($num) {
 
   <div id="total-raised"><noscript>$<?php echo number_format($TotalRaised); ?></noscript></div>
 
-  <div id="total-raised-bar"><div class="outer-therm" style="width: <?php echo $TotalPercent; ?>%;"><div class="inner-therm"><span><?php echo $TotalPercent; ?>%</span></div></div></div>
+  <div id="total-raised-bar">
+    <div class="outer-therm" style="width: <?php echo ($TotalPercent > 100) ? "100" : $TotalPercent; ?>%;">
+      <div class="inner-therm">
+        <span<?php if ($TotalPercent > 95) echo ' style="right: 0.5%;"'; ?>><?php echo $TotalPercent; ?>%</span>
+      </div>
+    </div>
+  </div>
   <!-- <div id="total-raised-bar"></div> -->
 
   TOWARD OUR $<?php echo number_format($TotalGoal); ?> CAMPAIGN GOAL. THANK YOU.
