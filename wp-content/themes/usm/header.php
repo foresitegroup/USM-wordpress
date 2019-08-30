@@ -141,8 +141,8 @@
 		  </video>
 
 		  <div class="video-text image">
-		  	<?php //echo get_theme_mod('usm_header_text'); ?>
-        <img src="<?php echo get_template_directory_uri(); ?>/images/the-perfect-pair-logo.png" alt="YOU+USM=THE PERFECT PAIR">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/the-perfect-pair-logo.png" alt="YOU+USM=THE PERFECT PAIR"><br>
+		  	<?php echo get_theme_mod('usm_header_text'); ?>
 		  </div>
       
       <div class="video-triangle-left"></div>

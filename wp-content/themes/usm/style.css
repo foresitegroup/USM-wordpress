@@ -828,8 +828,27 @@ A.logo DIV {
   text-transform: uppercase;
 }
 
-.video-text.image { height: 44%; font-size: 0; line-height: 1em; }
-.video-text.image IMG { max-height: 100%; width: auto; }
+.video-text.image { height: 44%; transform: translate(-50%,-50%); font-size: 0; line-height: 1em; }
+.video-text.image IMG { max-height: calc(100% - 65px); width: auto; }
+
+.video-text.image A.button:link, .video-text.image A.button:visited {
+  display: inline-block;
+  font-weight: 800;
+  line-height: 1em;
+  letter-spacing: 0.15em;
+  border: 4px solid #EDA50B;
+  border-radius: 1.5em;
+  padding: 0.5em 0.9em 0.5em 1em;
+  margin-top: 2em;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  transition: all 0.2s;
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.video-text.image A.button:hover, .video-text.image A.button:active { color: #EDA50B; }
 
 .video-text SPAN {
   display: inline-block;
@@ -3713,6 +3732,11 @@ A#loadmore:active {
   .single-post .alignright { max-width: 40%; height: auto; }
 }
 
+@media only screen and (max-width: 700px) {
+  .video-text.image { height: 55%; transform: translate(-50%,-45%); }
+  .video-text.image A.button:link, .video-text.image A.button:visited { font-size: 2vw; }
+}
+
 @media only screen and (max-width: 600px) {
   /* Small tablet */
   .video-banner {
@@ -3724,6 +3748,8 @@ A#loadmore:active {
     font-size: 45px;
     line-height: 1.3em;
   }
+
+  .video-text.image { transform: translate(-50%,-35%); }
 
   .video-banner {
     padding-top: 62%;
@@ -3879,6 +3905,10 @@ A#loadmore:active {
 
 @media only screen and (max-width: 555px) {
   .goals-menu UL LI { width: 100%; padding: 0.25em 0; }
+}
+
+@media only screen and (max-width: 500px) {
+  .video-text.image { transform: translate(-50%,-30%); }
 }
 
 @media only screen and (max-width: 480px) {
