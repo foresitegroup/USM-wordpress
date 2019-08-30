@@ -57,10 +57,10 @@ global $usmgoal_color;
     <script type="text/javascript" src="<?php echo get_template_directory_uri(); ?>/inc/circle-progress.min.js"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $(".goal-text .button").click(function(e) {
-          $.scrollTo("#scrolldown",{duration: 600});
-          e.preventDefault();
-        });
+        // $(".goal-text .button").click(function(e) {
+        //   $.scrollTo("#scrolldown",{duration: 600});
+        //   e.preventDefault();
+        // });
         
         <?php $Value = ($Percent > 99) ? "1." . $Percent : "0." . $Percent; ?>
         $('#<?php echo $usmgoal; ?>-circle').circleProgress({
