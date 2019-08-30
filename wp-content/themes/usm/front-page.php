@@ -14,7 +14,8 @@ $EndowmentPercent = number_format((get_theme_mod('endowment_raised')/get_theme_m
 $USMPercent = number_format((get_theme_mod('usm_raised')/get_theme_mod('usm_goal')) * 100);
 $TotalRaised = get_theme_mod('capital_raised') + get_theme_mod('endowment_raised') + get_theme_mod('usm_raised');
 $TotalGoal = get_theme_mod('capital_goal') + get_theme_mod('endowment_goal') + get_theme_mod('usm_goal');
-$TotalPercent = number_format(($TotalRaised/$TotalGoal) * 100);
+$TotalPercent = number_format(($TotalRaised/$TotalGoal) * 100, 2);
+if ($TotalPercent >= 100) $TotalPercent = number_format(($TotalRaised/$TotalGoal) * 100);
 
 function nice_number($num) {
   if ($num < 1000) {
