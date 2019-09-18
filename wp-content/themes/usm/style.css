@@ -1738,6 +1738,18 @@ A.logo DIV {
   width: 89%;
 }
 
+.goals-two-col-images .image1.video-popup {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.goals-two-col-images .image1.video-popup:before {
+  content: "";
+  display: block;
+  padding-top: 70%;
+}
+
 .goals-two-col-images .image2 {
   position: absolute;
   top: 53%;
@@ -1767,7 +1779,7 @@ A.logo DIV {
 }
 
 .text-first .goals-two-col-images .image3 {
-  top: 82.5%;
+  top: 86%;
   left: auto;
   right: 5%;
   width: 57%;
@@ -3443,9 +3455,6 @@ A#loadmore:active {
     font-size: 70px;
   }
 
-  .goals-two-col-images .image2 { top: 50%; }
-  .text-first .goals-two-col-images .image2 { top: 55%; }
-
   .goals-slider IMG { max-width: 100%; height: auto; }
 
   .opportunities-menu UL LI { margin-right: 3.9%; }
@@ -3522,6 +3531,10 @@ A#loadmore:active {
   .nav-links A.prev:link SPAN, .nav-links A.prev:visited SPAN,
   .nav-links A.next:link SPAN, .nav-links A.next:visited SPAN { left: 0; }
   .nav-links A.next:link SPAN { left: auto; right: 0; }
+  
+  .play-text .play { margin-bottom: 1em; }
+  .play { width: 9.5vw; height: 9.5vw; }
+  .play:before { border-width: 1.953vw 0 1.953vw 1.953vw; }
 }
 
 @media only screen and (max-width: 800px) {
@@ -3838,7 +3851,10 @@ A#loadmore:active {
 
   .text-first .goals-two-col-images .image1 { width: 96%; }
   .text-first .goals-two-col-images .image2 { top: 57.5%; left: 0; width: 57%; }
-  .text-first .goals-two-col-images .image3 { top: 82.5%; width: 57%; }
+  .text-first .goals-two-col-images .image3 { top: 86%; width: 57%; }
+
+  .play { width: 16.667vw; height: 16.667vw; }
+  .play:before { border-width: 3.333vw 0 3.333vw 3.333vw; }
 
   .goals-cols .one-third, .goals-cols .one-fourth { width: 100%; margin: 0 0 2em 0; }
 
