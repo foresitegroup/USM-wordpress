@@ -49,25 +49,6 @@ function nice_number($num) {
   <div class="site-width">
     <div class="one-third">
       <div class="circle">
-        <div id="endowment-circle" class="preload"></div>
-
-        <div class="circle-text">
-          Endowment
-          <div id="endowment-percent"><noscript><?php echo $EndowmentPercent . "%"; ?></noscript></div>
-        </div>
-      </div>
-      
-      <div class="one-third-text">
-        <div id="endowment-raised"><noscript>$<?php echo number_format(get_theme_mod('endowment_raised')); ?></noscript></div>
-        <div class="goal">Goal: $<?php echo nice_number(get_theme_mod('endowment_goal')); ?></div>
-        <?php echo get_theme_mod('endowment_home_text'); ?><br>
-
-        <a href="<?php echo site_url(); ?>/endowment">LEARN MORE</a>
-      </div>
-    </div>
-
-    <div class="one-third">
-      <div class="circle">
         <div id="usm-circle" class="preload"></div>
 
         <div class="circle-text">
@@ -84,7 +65,26 @@ function nice_number($num) {
         <a href="<?php echo site_url(); ?>/usm-fund">LEARN MORE</a>
       </div>
     </div>
+    
+    <div class="one-third">
+      <div class="circle">
+        <div id="endowment-circle" class="preload"></div>
 
+        <div class="circle-text">
+          Endowment
+          <div id="endowment-percent"><noscript><?php echo $EndowmentPercent . "%"; ?></noscript></div>
+        </div>
+      </div>
+      
+      <div class="one-third-text">
+        <div id="endowment-raised"><noscript>$<?php echo number_format(get_theme_mod('endowment_raised')); ?></noscript></div>
+        <div class="goal">Goal: $<?php echo nice_number(get_theme_mod('endowment_goal')); ?></div>
+        <?php echo get_theme_mod('endowment_home_text'); ?><br>
+
+        <a href="<?php echo site_url(); ?>/endowment">LEARN MORE</a>
+      </div>
+    </div>
+    
     <div class="one-third">
       <div class="circle">
         <div id="capital-circle" class="preload"></div>
