@@ -905,6 +905,54 @@ A.logo DIV {
   line-height: 1em;
 }
 
+#total-bar {
+  background: #00CCCC;
+  min-height: 12px;
+  margin: 22px 0 4.5em;
+  position: relative;
+  z-index: 1;
+}
+
+#total-bar:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  height: 100%;
+  background: #A14C24;
+}
+
+#total-bar:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  height: 100%;
+  width: 100%;
+  background: #D7D7D7;
+  transition: all 2s;
+}
+
+#total-bar-percent {
+  display: inline-block;
+  padding: 0 0.15em;
+  position: absolute;
+  bottom: 13px;
+  left: 0;
+  z-index: 4;
+  color: #00CCCC;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1em;
+  transition: all 2s;
+}
+
+#total-bar-percent:after {
+  content: "%";
+}
+
 #total-raised-bar {
   background: #D7D7D7;
   min-height: 12px;

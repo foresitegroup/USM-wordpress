@@ -42,6 +42,7 @@ global $usmgoal_color;
   	?>
   	<div class="circle">
       <div id="<?php echo $usmgoal; ?>-circle"></div>
+      <div id="<?php echo $usmgoal; ?>-circle2" style="position: absolute; top: 0; left: 0; width: 100%;"></div>
 
       <div class="circle-text">
         <?php echo $usmgoal_pretty; ?>
@@ -62,11 +63,29 @@ global $usmgoal_color;
         //   e.preventDefault();
         // });
         
-        <?php $Value = ($Percent > 99) ? "1." . $Percent : "0." . $Percent; ?>
+        <?php
+        if ($Percent > 99) {
+          $Value = "1";
+          $Value2 = ($Percent / 100) - 1;
+          $CircleDuration = 1500;
+        } else {
+          $Value = "0." . $Percent;
+          $Value2 = "0";
+          $CircleDuration = 2000;
+        }
+        ?>
         $('#<?php echo $usmgoal; ?>-circle').circleProgress({
-          value: <?php echo $Value; ?>, fill: '<?php echo $usmgoal_color; ?>', size: $('.goal-meter .circle').width(),
-          emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 21, animation: { duration: 2000 }
+          value: <?php echo $Value; ?>, fill: '<?php echo $usmgoal_color; ?>',
+          size: $('.goal-meter .circle').width(),
+          emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 21,
+          animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
         });
+        setTimeout(() => $('#<?php echo $usmgoal; ?>-circle2').circleProgress({
+          value: <?php echo $Value2; ?>, fill: '#A14C24',
+          size: $('.goal-meter .circle').width(),
+          emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 21,
+          animation: { duration: 500, easing: "linear" }
+        }), <?php echo $CircleDuration; ?>);
         
         $('.goals-slider').append('<div class="cycle-pager"></div><div class="cycle-prev"></div><div class="cycle-next"></div>');
         $('.goals-slider').find('br').remove();

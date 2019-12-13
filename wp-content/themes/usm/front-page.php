@@ -35,14 +35,24 @@ function nice_number($num) {
 
   <div id="total-raised"><noscript>$<?php echo number_format($TotalRaised); ?></noscript></div>
 
-  <div id="total-raised-bar">
-    <div class="outer-therm" style="width: <?php echo ($TotalPercent > 100) ? "100" : $TotalPercent; ?>%;">
+<!--   <div id="total-raised-bar">
+    <div class="outer-therm" style="width: <?php//echo ($TotalPercent > 100) ? "100" : $TotalPercent; ?>%;">
       <div class="inner-therm">
-        <span<?php if ($TotalPercent > 95) echo ' style="right: 0.5%;"'; ?>><?php echo $TotalPercent; ?>%</span>
+        <span<?php //if ($TotalPercent > 95) echo ' style="right: 0.5%;"'; ?>><?php //echo $TotalPercent; ?>%</span>
       </div>
     </div>
-  </div>
+  </div> -->
   <!-- <div id="total-raised-bar"></div> -->
+
+  <style>
+    <?php
+    if ($TotalPercent >= 100) echo "#total-bar:before { width: ".number_format($TotalPercent - 100)."%; }";
+    $BarPosition = ($TotalPercent >= 100) ? 100 : $TotalPercent;
+    ?>
+    #total-bar.anibar:after { left: <?php echo $BarPosition; ?>%; }
+    #total-bar.anibar #total-bar-percent { left: <?php echo $BarPosition; ?>%; transform: translateX(-100%); }
+  </style>
+  <div id="total-bar"><div id="total-bar-percent"><?php echo $TotalPercent; ?></div></div>
 
   TOWARD OUR $<?php echo number_format($TotalGoal); ?> CAMPAIGN GOAL. THANK YOU.
 
@@ -50,6 +60,7 @@ function nice_number($num) {
     <div class="one-third">
       <div class="circle">
         <div id="usm-circle" class="preload"></div>
+        <div id="usm-circle2" class="preload" style="position: absolute; top: 0; left: 0; width: 100%;"></div>
 
         <div class="circle-text">
           USM Fund
@@ -69,6 +80,7 @@ function nice_number($num) {
     <div class="one-third">
       <div class="circle">
         <div id="endowment-circle" class="preload"></div>
+        <div id="endowment-circle2" class="preload" style="position: absolute; top: 0; left: 0; width: 100%;"></div>
 
         <div class="circle-text">
           Endowment
@@ -88,6 +100,7 @@ function nice_number($num) {
     <div class="one-third">
       <div class="circle">
         <div id="capital-circle" class="preload"></div>
+        <div id="capital-circle2" class="preload" style="position: absolute; top: 0; left: 0; width: 100%;"></div>
 
         <div class="circle-text">
           Capital
@@ -120,6 +133,17 @@ function nice_number($num) {
     $(".home-progress").waypoint(function() {
       totalRaised.start();
 
+      $("#total-bar").addClass("anibar");
+
+      $('#total-bar.anibar #total-bar-percent').each(function() {
+        $(this).prop('Counter',0).animate({
+          Counter: $(this).text()
+        }, {
+          duration: 2000, easing: 'linear',
+          step: function(now) { $(this).text(Math.floor(now)); }
+        });
+      });
+
       // $('#total-raised-bar').jQMeter({
       //   goal: '<?php echo $TotalGoal; ?>',
       //   raised: '<?php echo $TotalRaised; ?>',
@@ -141,23 +165,77 @@ function nice_number($num) {
     $(".home-progress .site-width").waypoint(function() {
       $(".home-progress .one-third .circle .preload").removeClass("preload");
       
-      <?php $CapitalValue = ($CapitalPercent > 99) ? "1." . $CapitalPercent : "0." . $CapitalPercent; ?>
+      <?php
+      if ($CapitalPercent > 99) {
+        $CapitalValue = "1";
+        $CapitalValue2 = ($CapitalPercent / 100) - 1;
+        $CircleDuration = 1500;
+      } else {
+        $CapitalValue = "0." . $CapitalPercent;
+        $CapitalValue2 = "0";
+        $CircleDuration = 2000;
+      }
+      ?>
       $('#capital-circle').circleProgress({
-        value: <?php echo $CapitalValue; ?>, fill: '#A1B434', size: $('.home-progress .one-third .circle').width(),
-        emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15, animation: { duration: 2000 }
+        value: <?php echo $CapitalValue; ?>, fill: '#A1B434',
+        size: $('.home-progress .one-third .circle').width(),
+        emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15,
+        animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
       });
+      setTimeout(() => $('#capital-circle2').circleProgress({
+        value: <?php echo $CapitalValue2; ?>, fill: '#A14C24',
+        size: $('.home-progress .one-third .circle').width(),
+        emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 15,
+        animation: { duration: 500, easing: "linear" }
+      }), <?php echo $CircleDuration; ?>);
       
-      <?php $EndowmentValue = ($EndowmentPercent > 99) ? "1." . $EndowmentPercent : "0." . $EndowmentPercent; ?>
+      <?php
+      if ($EndowmentPercent > 99) {
+        $EndowmentValue = "1";
+        $EndowmentValue2 = ($EndowmentPercent / 100) - 1;
+        $CircleDuration = 1500;
+      } else {
+        $EndowmentValue = "0." . $EndowmentPercent;
+        $EndowmentValue2 = "0";
+        $CircleDuration = 2000;
+      }
+      ?>
       $('#endowment-circle').circleProgress({
-        value: <?php echo $EndowmentValue; ?>, fill: '#EDA50B', size: $('.home-progress .one-third .circle').width(),
-        emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15, animation: { duration: 2000 }
+        value: <?php echo $EndowmentValue; ?>, fill: '#EDA50B',
+        size: $('.home-progress .one-third .circle').width(),
+        emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15,
+        animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
       });
+      setTimeout(() => $('#endowment-circle2').circleProgress({
+        value: <?php echo $EndowmentValue2; ?>, fill: '#A14C24',
+        size: $('.home-progress .one-third .circle').width(),
+        emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 15,
+        animation: { duration: 500, easing: "linear" }
+      }), <?php echo $CircleDuration; ?>);
       
-      <?php $USMValue = ($USMPercent > 99) ? "1." . $USMPercent : "0." . $USMPercent; ?>
+      <?php
+      if ($USMPercent > 99) {
+        $USMValue = "1";
+        $USMValue2 = ($USMPercent / 100) - 1;
+        $CircleDuration = 1500;
+      } else {
+        $USMValue = "0." . $USMPercent;
+        $USMValue2 = "0";
+        $CircleDuration = 2000;
+      }
+      ?>
       $('#usm-circle').circleProgress({
-        value: <?php echo $USMValue; ?>, fill: '#003366', size: $('.home-progress .one-third .circle').width(),
-        emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15, animation: { duration: 2000 }
+        value: <?php echo $USMValue; ?>, fill: '#003366',
+        size: $('.home-progress .one-third .circle').width(),
+        emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15,
+        animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
       });
+      setTimeout(() => $('#usm-circle2').circleProgress({
+        value: <?php echo $USMValue2; ?>, fill: '#A14C24',
+        size: $('.home-progress .one-third .circle').width(),
+        emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 15,
+        animation: { duration: 500, easing: "linear" }
+      }), <?php echo $CircleDuration; ?>);
 
       capitalPercent.start();
       endowmentPercent.start();
