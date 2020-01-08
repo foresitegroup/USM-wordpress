@@ -6,6 +6,7 @@
 global $usmgoal;
 global $usmgoal_pretty;
 global $usmgoal_color;
+global $usmgoal_color2;
 ?>
 
 <?php wp_nav_menu(array('theme_location' => 'goals-menu', 'container_class' => 'site-width-small goals-menu', 'menu_class' => '')); ?>
@@ -81,7 +82,7 @@ global $usmgoal_color;
           animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
         });
         setTimeout(() => $('#<?php echo $usmgoal; ?>-circle2').circleProgress({
-          value: <?php echo $Value2; ?>, fill: '#A14C24',
+          value: <?php echo $Value2; ?>, fill: '<?php echo $usmgoal_color2; ?>',
           size: $('.goal-meter .circle').width(),
           emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 21,
           animation: { duration: 500, easing: "linear" }

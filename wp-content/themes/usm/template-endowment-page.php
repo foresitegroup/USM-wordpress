@@ -6,6 +6,7 @@ get_header();
 $usmgoal = "endowment";
 $usmgoal_pretty = "Endowment";
 $usmgoal_color = "#EDA50B";
+$usmgoal_color2 = "#8E6306";
 
 // Show the selected capital page content.
 if ( have_posts() ) :

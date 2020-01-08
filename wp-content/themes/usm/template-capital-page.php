@@ -6,6 +6,7 @@ get_header();
 $usmgoal = "capital";
 $usmgoal_pretty = "Capital";
 $usmgoal_color = "#A1B434";
+$usmgoal_color2 = "#606C1F";
 
 // Show the selected capital page content.
 if ( have_posts() ) :

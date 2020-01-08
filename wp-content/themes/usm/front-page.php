@@ -183,7 +183,7 @@ function nice_number($num) {
         animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
       });
       setTimeout(() => $('#capital-circle2').circleProgress({
-        value: <?php echo $CapitalValue2; ?>, fill: '#A14C24',
+        value: <?php echo $CapitalValue2; ?>, fill: '#606C1F',
         size: $('.home-progress .one-third .circle').width(),
         emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 15,
         animation: { duration: 500, easing: "linear" }
@@ -207,7 +207,7 @@ function nice_number($num) {
         animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
       });
       setTimeout(() => $('#endowment-circle2').circleProgress({
-        value: <?php echo $EndowmentValue2; ?>, fill: '#A14C24',
+        value: <?php echo $EndowmentValue2; ?>, fill: '#8E6306',
         size: $('.home-progress .one-third .circle').width(),
         emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 15,
         animation: { duration: 500, easing: "linear" }
@@ -225,13 +225,13 @@ function nice_number($num) {
       }
       ?>
       $('#usm-circle').circleProgress({
-        value: <?php echo $USMValue; ?>, fill: '#003366',
+        value: <?php echo $USMValue; ?>, fill: '#6684A3',
         size: $('.home-progress .one-third .circle').width(),
         emptyFill: '#D7D7D7', startAngle: -Math.PI/2, thickness: 15,
         animation: { duration: <?php echo $CircleDuration; ?>, easing: "linear" }
       });
       setTimeout(() => $('#usm-circle2').circleProgress({
-        value: <?php echo $USMValue2; ?>, fill: '#A14C24',
+        value: <?php echo $USMValue2; ?>, fill: '#003366',
         size: $('.home-progress .one-third .circle').width(),
         emptyFill: 'transparent', startAngle: -Math.PI/2, thickness: 15,
         animation: { duration: 500, easing: "linear" }

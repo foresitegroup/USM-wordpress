@@ -5,7 +5,8 @@ get_header();
 
 $usmgoal = "usm";
 $usmgoal_pretty = "USM Fund";
-$usmgoal_color = "#003366";
+$usmgoal_color2 = "#003366";
+$usmgoal_color = "#6684A3";
 
 // Show the selected capital page content.
 if ( have_posts() ) :
