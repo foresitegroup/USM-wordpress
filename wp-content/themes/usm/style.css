@@ -894,6 +894,17 @@ A.logo DIV {
   font-weight: 800;
   font-size: 18px;
   line-height: 1em;
+  position: relative;
+}
+
+.home-progress .stamp {
+  position: absolute;
+  z-index: 5;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 100%;
+  height: auto;
 }
 
 #total-raised {
@@ -3815,6 +3826,8 @@ A#loadmore:active {
   .video-banner {
     padding-top: 62%;
   }
+
+  .home-progress .stamp { top: 14.167vw; }
 
   #total-raised {
     font-size: 16vw;

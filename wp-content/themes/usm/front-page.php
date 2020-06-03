@@ -31,6 +31,8 @@ function nice_number($num) {
 ?>
 
 <div class="home-progress">
+  <img src="<?php echo get_template_directory_uri(); ?>/images/stamp-red.png" alt="SUCCESSFULY COMPLETED" class="stamp">
+
   TOGETHER WE HAVE RAISED A TOTAL OF
 
   <div id="total-raised"><noscript>$<?php echo number_format($TotalRaised); ?></noscript></div>
