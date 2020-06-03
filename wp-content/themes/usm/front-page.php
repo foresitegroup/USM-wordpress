@@ -31,7 +31,7 @@ function nice_number($num) {
 ?>
 
 <div class="home-progress">
-  <img src="<?php echo get_template_directory_uri(); ?>/images/stamp-green.png" alt="SUCCESSFULY COMPLETED" class="stamp">
+  <img src="<?php echo get_template_directory_uri(); ?>/images/stamp-red.png" alt="SUCCESSFULY COMPLETED" class="stamp">
 
   TOGETHER WE HAVE RAISED A TOTAL OF
 

@@ -900,7 +900,7 @@ A.logo DIV {
 .home-progress .stamp {
   position: absolute;
   z-index: 5;
-  top: 150px;
+  top: 130px;
   left: 50%;
   transform: translateX(-50%);
   max-width: 100%;
