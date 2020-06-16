@@ -905,6 +905,7 @@ A.logo DIV {
   transform: translateX(-50%);
   max-width: 100%;
   height: auto;
+  opacity: 0.7;
 }
 
 #total-raised {
