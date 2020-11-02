@@ -441,4 +441,79 @@ function my_admin_styles() {
     .fixed .column-featured-checkbox { width: 10%; }
   </style>';
 }
+
+
+
+add_filter('admin_post_thumbnail_html', 'add_featured_image_display_settings', 10, 2);
+function add_featured_image_display_settings($content, $post) {
+  if(get_page_template_slug() == 'template-usm-fund-donors.php') {
+    $fic = get_post_meta($post, "featured_image_caption", true);
+    
+    $fi_caption = '<strong>Text Overlay</strong><br>';
+    $fi_caption .= '<input type="text" name="featured_image_caption" value="';
+    if ($fic != "") $fi_caption .= $fic;
+    $fi_caption .= '" style="width: 100%;">';
+
+    return $content .= $fi_caption;
+  } else {
+    return $content;
+  }
+}
+
+add_action('save_post', 'save_featured_image_display_settings', 10, 3);
+function save_featured_image_display_settings($post_id, $post, $update) {
+  if (get_page_template_slug() != 'template-usm-fund-donors.php') return;
+
+  if (!empty($_POST['featured_image_caption'])) {
+    update_post_meta($post_id, 'featured_image_caption', $_POST['featured_image_caption']);
+  } else {
+    delete_post_meta($post_id, 'featured_image_caption');
+  }
+}
+
+add_action('edit_form_after_title', 'usm_fund_donors');
+function usm_fund_donors() {
+  global $post;
+
+  if(get_page_template_slug() == 'template-usm-fund-donors.php') {
+    echo '<style>
+      .ufd-headers { margin: 0.5em 0; padding: 3px 8px; font-size: 1.2em; line-height: 100%; height: 1.7em; width: 100%; outline: 0; }
+    </style>';
+
+    echo '<input type="text" name="ufd_list_header" placeholder="Enter list header here" value="';
+    if ($post->ufd_list_header != "") echo $post->ufd_list_header;
+    echo '" class="ufd-headers">';
+
+    echo '<input type="text" name="ufd_list_subheader" placeholder="Enter list subheader here" value="';
+    if ($post->ufd_list_subheader != "") echo $post->ufd_list_subheader;
+    echo '" class="ufd-headers">';
+
+    echo '<input type="text" name="ufd_list_asof" placeholder="Enter as of date here" value="';
+    if ($post->ufd_list_asof != "") echo $post->ufd_list_asof;
+    echo '" class="ufd-headers">';
+  }
+}
+
+add_action('save_post', 'save_ufd', 10, 3);
+function save_ufd($post_id, $post, $update) {
+  if (get_page_template_slug() != 'template-usm-fund-donors.php') return;
+
+  if (!empty($_POST['ufd_list_header'])) {
+    update_post_meta($post_id, 'ufd_list_header', $_POST['ufd_list_header']);
+  } else {
+    delete_post_meta($post_id, 'ufd_list_header');
+  }
+
+  if (!empty($_POST['ufd_list_subheader'])) {
+    update_post_meta($post_id, 'ufd_list_subheader', $_POST['ufd_list_subheader']);
+  } else {
+    delete_post_meta($post_id, 'ufd_list_subheader');
+  }
+
+  if (!empty($_POST['ufd_list_asof'])) {
+    update_post_meta($post_id, 'ufd_list_asof', $_POST['ufd_list_asof']);
+  } else {
+    delete_post_meta($post_id, 'ufd_list_asof');
+  }
+}
 ?>

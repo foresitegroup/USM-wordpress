@@ -3499,12 +3499,66 @@ A#loadmore:active {
   color: #EDA50B;
 }
 
+.usm-fund-donors-header {
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+.usm-fund-donors-header:before {
+  content: "";
+  display: block;
+  padding-top: 31.25%;
+}
+
+.usm-fund-donors-header H1 {
+  width: 96%;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 5;
+  text-align: center;
+  color: #FFFFFF;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 1.2em;
+}
+
+.usm-fund-donors { padding: 4em 0; }
+
+.usm-fund-donors H2 {
+  margin: 0 auto 0.25em;
+  color: #003366;
+  font-family: 'Noto Serif', serif;
+  font-weight: 700;
+  font-size: 40px;
+  line-height: 1.2em;
+  text-align: center;
+}
+
+.usm-fund-donors .thanks {
+  text-align: center;
+  margin: 1.5em 0 3em;
+}
+
+.usm-fund-donors .two-col {
+  column-count: 2;
+  font-size: 18px;
+  line-height: 2em;
+}
+
+.usm-fund-donors .asof { display: inline-block; margin-top: 2em; }
+
 
 @media only screen and (max-width: 1200px) {
-  .site-width,
-  .goals-slider {
+  .site-width, .goals-slider {
     width: 96%;
   }
+
+  .usm-fund-donors-header { width: 100%; }
 
   .insert-page-home-slider .slick-prev { left: -15px; }
   .insert-page-home-slider .slick-next { right: -15px; }
@@ -3808,6 +3862,9 @@ A#loadmore:active {
 @media only screen and (max-width: 700px) {
   .video-text.image { height: 55%; transform: translate(-50%,-45%); }
   .video-text.image A.button:link, .video-text.image A.button:visited { font-size: 2vw; }
+
+  .about-cabinet-header .site-width H1,
+  .usm-fund-donors-header H1 { font-size: 7vw; }
 }
 
 @media only screen and (max-width: 600px) {
@@ -3958,8 +4015,8 @@ A#loadmore:active {
   .about-quote .alignright { width: 100% !important; float: none; margin: 0; }
   .about-quote .wp-caption-text { margin-bottom: 2em; }
 
-  .about-cabinet-header:before { padding-top: 50%; }
-  .about-cabinet-header .site-width H1 { font-size: 50px; }
+  .about-cabinet-header:before, .usm-fund-donors-header:before { padding-top: 50%; }
+  /*.about-cabinet-header .site-width H1 { font-size: 50px; }*/
 
   .about-cabinet .one-third { width: 46%; margin-bottom: 2em; }
   .about-cabinet .one-third:nth-of-type(2) { margin-right: 0; }
@@ -3979,6 +4036,8 @@ A#loadmore:active {
   .first-post .explore { margin: 0 2em; }
 
   .blog-newsletter H3 { font-size: 38px; }
+
+  .usm-fund-donors .two-col { column-count: 1; }
 }
 
 @media only screen and (max-width: 555px) {
