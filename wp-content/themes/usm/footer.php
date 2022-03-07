@@ -14,6 +14,8 @@
           <a href="<?php echo get_theme_mod('usm_youtube'); ?>"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
         </div>
       </div>
+
+      <a href="https://foresitegrp.com" style="font-size: 0.6875rem; color: #003264;">WEBSITE BY FORESITE</a><br><br>
     </div>
 
     <div id="newsletter" style="display: none;">
